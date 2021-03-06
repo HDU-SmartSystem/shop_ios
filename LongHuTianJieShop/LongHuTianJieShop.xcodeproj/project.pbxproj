@@ -27,6 +27,8 @@
 		2BE73EE825F380C400257753 /* LHSearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE73EE725F380C400257753 /* LHSearchResultViewController.m */; };
 		2BE73EED25F385A600257753 /* LHShopListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE73EEC25F385A600257753 /* LHShopListViewController.m */; };
 		2BE73EF425F385FD00257753 /* LHShopListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE73EF325F385FD00257753 /* LHShopListViewModel.m */; };
+		2BE73F2225F3BB8000257753 /* LHBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE73F2125F3BB8000257753 /* LHBaseTableViewCell.m */; };
+		2BE73F2A25F3C2F600257753 /* LHMainHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE73F2925F3C2F600257753 /* LHMainHeaderView.m */; };
 		2BFE34C925EE690E0066FC2F /* LHShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BFE34C825EE690E0066FC2F /* LHShopViewController.m */; };
 		2BFE34CD25EE691F0066FC2F /* LHRecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BFE34CC25EE691F0066FC2F /* LHRecommendViewController.m */; };
 		2BFE34D525EE6ADA0066FC2F /* LHMainTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BFE34D425EE6ADA0066FC2F /* LHMainTopView.m */; };
@@ -79,6 +81,10 @@
 		2BE73EEC25F385A600257753 /* LHShopListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LHShopListViewController.m; sourceTree = "<group>"; };
 		2BE73EF225F385FD00257753 /* LHShopListViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LHShopListViewModel.h; sourceTree = "<group>"; };
 		2BE73EF325F385FD00257753 /* LHShopListViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LHShopListViewModel.m; sourceTree = "<group>"; };
+		2BE73F2025F3BB8000257753 /* LHBaseTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LHBaseTableViewCell.h; sourceTree = "<group>"; };
+		2BE73F2125F3BB8000257753 /* LHBaseTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LHBaseTableViewCell.m; sourceTree = "<group>"; };
+		2BE73F2825F3C2F600257753 /* LHMainHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LHMainHeaderView.h; sourceTree = "<group>"; };
+		2BE73F2925F3C2F600257753 /* LHMainHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LHMainHeaderView.m; sourceTree = "<group>"; };
 		2BFE34C725EE690E0066FC2F /* LHShopViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LHShopViewController.h; sourceTree = "<group>"; };
 		2BFE34C825EE690E0066FC2F /* LHShopViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LHShopViewController.m; sourceTree = "<group>"; };
 		2BFE34CB25EE691F0066FC2F /* LHRecommendViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LHRecommendViewController.h; sourceTree = "<group>"; };
@@ -177,11 +183,10 @@
 		2BBCFE0725EE63F900C9513F /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				2BE73F0425F3B92200257753 /* Model */,
+				2BE73F0225F3B8D700257753 /* ViewController */,
+				2BE73F0025F3B8B100257753 /* ViewModel */,
 				2BFE34D225EE6A400066FC2F /* View */,
-				2BBCFDFA25EE5B3800C9513F /* LHMainViewController.h */,
-				2BBCFDFB25EE5B3800C9513F /* LHMainViewController.m */,
-				2BBCFE0825EE643400C9513F /* LHMainViewModel.h */,
-				2BBCFE0925EE643400C9513F /* LHMainViewModel.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -201,6 +206,8 @@
 				2B61D49125F3463F00E308F3 /* LHWindowManager.m */,
 				2B61D49525F34F1D00E308F3 /* LHBaseViewController.h */,
 				2B61D49625F34F1D00E308F3 /* LHBaseViewController.m */,
+				2BE73F2025F3BB8000257753 /* LHBaseTableViewCell.h */,
+				2BE73F2125F3BB8000257753 /* LHBaseTableViewCell.m */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -237,6 +244,7 @@
 		2BE73EEA25F3858500257753 /* ShopList */ = {
 			isa = PBXGroup;
 			children = (
+				2BE73F2425F3BB9300257753 /* View */,
 				2BE73EF125F385C800257753 /* ViewModel */,
 				2BE73EF025F385B600257753 /* ViewController */,
 				2BFE34E825EE85E00066FC2F /* Model */,
@@ -260,6 +268,40 @@
 				2BE73EF325F385FD00257753 /* LHShopListViewModel.m */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2BE73F0025F3B8B100257753 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2BBCFE0825EE643400C9513F /* LHMainViewModel.h */,
+				2BBCFE0925EE643400C9513F /* LHMainViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2BE73F0225F3B8D700257753 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2BBCFDFA25EE5B3800C9513F /* LHMainViewController.h */,
+				2BBCFDFB25EE5B3800C9513F /* LHMainViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		2BE73F0425F3B92200257753 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2BE73F2425F3BB9300257753 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2BFE350025EE92890066FC2F /* LHShopListItemCell.h */,
+				2BFE350125EE92890066FC2F /* LHShopListItemCell.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		2BFE34C625EE68EA0066FC2F /* Mine */ = {
@@ -294,6 +336,8 @@
 			children = (
 				2BFE34D325EE6ADA0066FC2F /* LHMainTopView.h */,
 				2BFE34D425EE6ADA0066FC2F /* LHMainTopView.m */,
+				2BE73F2825F3C2F600257753 /* LHMainHeaderView.h */,
+				2BE73F2925F3C2F600257753 /* LHMainHeaderView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -315,8 +359,6 @@
 		2BFE34E825EE85E00066FC2F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				2BFE350025EE92890066FC2F /* LHShopListItemCell.h */,
-				2BFE350125EE92890066FC2F /* LHShopListItemCell.m */,
 				2BFE34FC25EE8DCB0066FC2F /* LHShopListModel.h */,
 				2BFE34FD25EE8DCB0066FC2F /* LHShopListModel.m */,
 			);
@@ -481,6 +523,7 @@
 				2BBCFE0A25EE643400C9513F /* LHMainViewModel.m in Sources */,
 				2BE73EE225F37EDE00257753 /* LHSearchViewModel.m in Sources */,
 				2BFE34DF25EE70B70066FC2F /* NSString+LHExtention.m in Sources */,
+				2BE73F2225F3BB8000257753 /* LHBaseTableViewCell.m in Sources */,
 				2BFE34DB25EE6CE00066FC2F /* UIColor+LHExtention.m in Sources */,
 				2B61D48E25F343C600E308F3 /* LHRoute.m in Sources */,
 				2BE73EF425F385FD00257753 /* LHShopListViewModel.m in Sources */,
@@ -496,6 +539,7 @@
 				2B61D49725F34F1D00E308F3 /* LHBaseViewController.m in Sources */,
 				2B5052A425EE52A500E89CF7 /* SceneDelegate.m in Sources */,
 				2BE73EED25F385A600257753 /* LHShopListViewController.m in Sources */,
+				2BE73F2A25F3C2F600257753 /* LHMainHeaderView.m in Sources */,
 				2BBCFDFC25EE5B3800C9513F /* LHMainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

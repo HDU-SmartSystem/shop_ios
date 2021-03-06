@@ -10,7 +10,6 @@
 #import "UIColor+LHExtention.h"
 
 @interface LHShopListViewController ()
-@property(nonatomic,strong) UITableView *tableView;
 @property(nonatomic,strong) LHShopListViewModel *viewModel;
 @property(nonatomic,assign) LHShopListType listType;
 @property(nonatomic,copy) NSDictionary* params;

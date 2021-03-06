@@ -6,22 +6,19 @@
 //
 
 #import "LHMainViewModel.h"
-#import "LHAPI.h"
-#import "LHShopListModel.h"
-#import "LHShopListItemCell.h"
 #import "LHCommonDefine.h"
 #import "UIColor+LHExtention.h"
-#import <MJRefresh/MJRefresh.h>
 #import "UIViewAdditions.h"
-#import "NSString+LHExtention.h"
 
-@interface LHMainViewModel ()
+@interface LHMainViewModel () <UITableViewDataSource,UITableViewDelegate>
+@property(nonatomic,strong) UITableView *tableView;
 @end
 
 @implementation LHMainViewModel
 
 -(instancetype)initWithTableView:(UITableView *)tableView {
     if(self = [super init]) {
+        self.tableView = tableView;
     }
     return self;
 }

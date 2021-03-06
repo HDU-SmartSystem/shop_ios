@@ -14,6 +14,7 @@ typedef NS_ENUM(NSInteger,LHShopListType) {
 };
 
 @interface LHShopListViewController : UIViewController
+@property(nonatomic,strong) UITableView *tableView;
 - (void)updateFrame:(CGRect)frame;
 - (instancetype)initWithListType:(LHShopListType)type params:(nullable NSDictionary *)params;
 @end
