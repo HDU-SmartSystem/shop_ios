@@ -12,8 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 typedef void(^completionBlock)(JSONModel *model);
 
 @interface LHAPI : NSObject
-+ (void)requestMainShopListWithPage:(NSInteger)page completion:(completionBlock)completion;
++ (void)requestShopListWithCatogory:(NSString *)category Page:(NSInteger)page completion:(completionBlock)completion;
 + (void)requestShopListWithCategory:(NSString *)category field:(NSString *)field keyword:(NSString *)keyword page:(NSInteger)page completion:(nonnull completionBlock)completion;
++ (void)requestSearchRecommandWithcompletion:(completionBlock)completion;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -81,9 +81,10 @@
 
     if(self.isLastSuccess) {
         switch (self.listType) {
-            case LHShopListTypeMain:
+            case LHShopListTypeCategory:
             {
-                [LHAPI requestMainShopListWithPage:self.pageNumber completion:completionBlk];
+                NSString *category = self.params[@"category"];
+                [LHAPI requestShopListWithCatogory:category Page:self.pageNumber completion:completionBlk];
                 break;
             }
             case LHShopListTypeSearch:

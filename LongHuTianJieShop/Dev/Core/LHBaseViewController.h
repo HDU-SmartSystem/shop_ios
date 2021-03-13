@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface LHBaseViewController : UIViewController <LHRouteProtocol>
 @property(nonatomic,strong) UIView *customNavBar;
 @property(nonatomic,strong) UILabel *titleLabel;
+@property(nonatomic,copy) void(^backBlock)(void);
 - (void)goBack;
 @end
 

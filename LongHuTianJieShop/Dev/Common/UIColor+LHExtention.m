@@ -9,21 +9,23 @@
 
 @implementation UIColor (LHExtention)
 
-+ (UIColor *)colorWithHexString:(NSString *)hexString {
++ (UIColor *)colorWithHexString:(NSString *)hexString{
+    return [self colorWithHexString:hexString alpha:1.0];
+}
+
++ (UIColor *)colorWithHexString:(NSString *)hexString alpha:(CGFloat)alpha{
     if (hexString == nil || hexString.length == 0) {
         return [UIColor clearColor];
     }
     
     NSString *rgbString = [hexString substringFromIndex:1];
 
-    unsigned int alpha = 0xFF;
-
     unsigned int rgb = 0;
     NSScanner *scanner = [NSScanner scannerWithString:rgbString];
     if (![scanner scanHexInt:&rgb]) {
         return nil;
     }
-    return [self colorWithRGB:rgb alpha:alpha];
+    return [self colorWithRGB:rgb alpha:alpha * 255.0];
 }
 
 + (UIColor *)colorWithRGB:(uint)rgb alpha:(uint)alpha {

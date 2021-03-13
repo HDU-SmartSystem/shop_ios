@@ -58,6 +58,7 @@
         nameDict = @{
             @"search" : @"LHSearchViewController",
             @"search_result" : @"LHSearchResultViewController",
+            @"category_list" : @"LHMainCategoryViewController",
         };
     });
     NSString *name = [nameDict valueForKey:url];

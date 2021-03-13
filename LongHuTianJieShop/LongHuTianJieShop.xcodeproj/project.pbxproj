@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B33029825FCED300052AD35 /* LHSearchHistoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B33029725FCED300052AD35 /* LHSearchHistoryView.m */; };
+		2B33029C25FCEF1D0052AD35 /* LHSearchHistoryFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B33029B25FCEF1D0052AD35 /* LHSearchHistoryFlowLayout.m */; };
+		2B3302A025FCF1F70052AD35 /* LHSeachItemCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B33029F25FCF1F70052AD35 /* LHSeachItemCollectionCell.m */; };
+		2B3302AC25FCF4560052AD35 /* UIFont+LHExtention.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3302AB25FCF4560052AD35 /* UIFont+LHExtention.m */; };
+		2B4E694525FD015900368AF7 /* LHShopSearchRecommandModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4E694325FD015900368AF7 /* LHShopSearchRecommandModel.m */; };
+		2B4E694925FD250300368AF7 /* LHSearchHistoryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4E694825FD250300368AF7 /* LHSearchHistoryManager.m */; };
+		2B4E694D25FD2E1A00368AF7 /* LHLauchManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4E694C25FD2E1A00368AF7 /* LHLauchManger.m */; };
+		2B4E695925FD3F9B00368AF7 /* LHMainCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4E695825FD3F9B00368AF7 /* LHMainCategoryViewController.m */; };
 		2B5052A125EE52A500E89CF7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5052A025EE52A500E89CF7 /* AppDelegate.m */; };
 		2B5052A425EE52A500E89CF7 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5052A325EE52A500E89CF7 /* SceneDelegate.m */; };
 		2B5052AA25EE52A500E89CF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B5052A825EE52A500E89CF7 /* Main.storyboard */; };
@@ -42,6 +50,22 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B33029625FCED300052AD35 /* LHSearchHistoryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LHSearchHistoryView.h; sourceTree = "<group>"; };
+		2B33029725FCED300052AD35 /* LHSearchHistoryView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LHSearchHistoryView.m; sourceTree = "<group>"; };
+		2B33029A25FCEF1D0052AD35 /* LHSearchHistoryFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LHSearchHistoryFlowLayout.h; sourceTree = "<group>"; };
+		2B33029B25FCEF1D0052AD35 /* LHSearchHistoryFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LHSearchHistoryFlowLayout.m; sourceTree = "<group>"; };
+		2B33029E25FCF1F70052AD35 /* LHSeachItemCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LHSeachItemCollectionCell.h; sourceTree = "<group>"; };
+		2B33029F25FCF1F70052AD35 /* LHSeachItemCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LHSeachItemCollectionCell.m; sourceTree = "<group>"; };
+		2B3302AA25FCF4560052AD35 /* UIFont+LHExtention.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIFont+LHExtention.h"; sourceTree = "<group>"; };
+		2B3302AB25FCF4560052AD35 /* UIFont+LHExtention.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIFont+LHExtention.m"; sourceTree = "<group>"; };
+		2B4E694325FD015900368AF7 /* LHShopSearchRecommandModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LHShopSearchRecommandModel.m; sourceTree = "<group>"; };
+		2B4E694425FD015900368AF7 /* LHShopSearchRecommandModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LHShopSearchRecommandModel.h; sourceTree = "<group>"; };
+		2B4E694725FD250300368AF7 /* LHSearchHistoryManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LHSearchHistoryManager.h; sourceTree = "<group>"; };
+		2B4E694825FD250300368AF7 /* LHSearchHistoryManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LHSearchHistoryManager.m; sourceTree = "<group>"; };
+		2B4E694B25FD2E1A00368AF7 /* LHLauchManger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LHLauchManger.h; sourceTree = "<group>"; };
+		2B4E694C25FD2E1A00368AF7 /* LHLauchManger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LHLauchManger.m; sourceTree = "<group>"; };
+		2B4E695725FD3F9B00368AF7 /* LHMainCategoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LHMainCategoryViewController.h; sourceTree = "<group>"; };
+		2B4E695825FD3F9B00368AF7 /* LHMainCategoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LHMainCategoryViewController.m; sourceTree = "<group>"; };
 		2B50529C25EE52A500E89CF7 /* LongHuTianJieShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LongHuTianJieShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B50529F25EE52A500E89CF7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2B5052A025EE52A500E89CF7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -120,6 +144,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B4E694225FD014200368AF7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2B4E694425FD015900368AF7 /* LHShopSearchRecommandModel.h */,
+				2B4E694325FD015900368AF7 /* LHShopSearchRecommandModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		2B50529325EE52A500E89CF7 = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +191,7 @@
 		2B61D49425F34EA500E308F3 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				2B4E694225FD014200368AF7 /* Model */,
 				2BE73EE425F3801C00257753 /* ViewController */,
 				2BE73EDA25F3749500257753 /* ViewModel */,
 				2BE73ED925F3748D00257753 /* View */,
@@ -208,6 +242,8 @@
 				2B61D49625F34F1D00E308F3 /* LHBaseViewController.m */,
 				2BE73F2025F3BB8000257753 /* LHBaseTableViewCell.h */,
 				2BE73F2125F3BB8000257753 /* LHBaseTableViewCell.m */,
+				2B4E694B25FD2E1A00368AF7 /* LHLauchManger.h */,
+				2B4E694C25FD2E1A00368AF7 /* LHLauchManger.m */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -217,6 +253,12 @@
 			children = (
 				2BE73EDB25F374E200257753 /* LHSearchBarView.h */,
 				2BE73EDC25F374E200257753 /* LHSearchBarView.m */,
+				2B33029625FCED300052AD35 /* LHSearchHistoryView.h */,
+				2B33029725FCED300052AD35 /* LHSearchHistoryView.m */,
+				2B33029A25FCEF1D0052AD35 /* LHSearchHistoryFlowLayout.h */,
+				2B33029B25FCEF1D0052AD35 /* LHSearchHistoryFlowLayout.m */,
+				2B33029E25FCF1F70052AD35 /* LHSeachItemCollectionCell.h */,
+				2B33029F25FCF1F70052AD35 /* LHSeachItemCollectionCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -226,6 +268,8 @@
 			children = (
 				2BE73EE025F37EDE00257753 /* LHSearchViewModel.h */,
 				2BE73EE125F37EDE00257753 /* LHSearchViewModel.m */,
+				2B4E694725FD250300368AF7 /* LHSearchHistoryManager.h */,
+				2B4E694825FD250300368AF7 /* LHSearchHistoryManager.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -284,6 +328,8 @@
 			children = (
 				2BBCFDFA25EE5B3800C9513F /* LHMainViewController.h */,
 				2BBCFDFB25EE5B3800C9513F /* LHMainViewController.m */,
+				2B4E695725FD3F9B00368AF7 /* LHMainCategoryViewController.h */,
+				2B4E695825FD3F9B00368AF7 /* LHMainCategoryViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -352,6 +398,8 @@
 				2BFE34DA25EE6CE00066FC2F /* UIColor+LHExtention.m */,
 				2BFE34DD25EE70B70066FC2F /* NSString+LHExtention.h */,
 				2BFE34DE25EE70B70066FC2F /* NSString+LHExtention.m */,
+				2B3302AA25FCF4560052AD35 /* UIFont+LHExtention.h */,
+				2B3302AB25FCF4560052AD35 /* UIFont+LHExtention.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -514,6 +562,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BFE34F025EE87240066FC2F /* LHAPI.m in Sources */,
+				2B3302AC25FCF4560052AD35 /* UIFont+LHExtention.m in Sources */,
 				2B81C3AF25EE59060010A748 /* LHTabViewController.m in Sources */,
 				2B5052A125EE52A500E89CF7 /* AppDelegate.m in Sources */,
 				2B5052B225EE52A800E89CF7 /* main.m in Sources */,
@@ -522,6 +571,7 @@
 				2BFE350225EE92890066FC2F /* LHShopListItemCell.m in Sources */,
 				2BBCFE0A25EE643400C9513F /* LHMainViewModel.m in Sources */,
 				2BE73EE225F37EDE00257753 /* LHSearchViewModel.m in Sources */,
+				2B4E694D25FD2E1A00368AF7 /* LHLauchManger.m in Sources */,
 				2BFE34DF25EE70B70066FC2F /* NSString+LHExtention.m in Sources */,
 				2BE73F2225F3BB8000257753 /* LHBaseTableViewCell.m in Sources */,
 				2BFE34DB25EE6CE00066FC2F /* UIColor+LHExtention.m in Sources */,
@@ -530,13 +580,19 @@
 				2BBCFE0025EE5C2100C9513F /* LHNavigationController.m in Sources */,
 				2B61D49C25F34F6E00E308F3 /* LHSearchViewController.m in Sources */,
 				2BBCFE0425EE5F1800C9513F /* LHMineViewController.m in Sources */,
+				2B4E695925FD3F9B00368AF7 /* LHMainCategoryViewController.m in Sources */,
 				2BFE34CD25EE691F0066FC2F /* LHRecommendViewController.m in Sources */,
 				2BFE34E325EE726D0066FC2F /* UIViewAdditions.m in Sources */,
 				2BE73EE825F380C400257753 /* LHSearchResultViewController.m in Sources */,
 				2B61D49225F3464000E308F3 /* LHWindowManager.m in Sources */,
+				2B33029825FCED300052AD35 /* LHSearchHistoryView.m in Sources */,
+				2B33029C25FCEF1D0052AD35 /* LHSearchHistoryFlowLayout.m in Sources */,
+				2B4E694925FD250300368AF7 /* LHSearchHistoryManager.m in Sources */,
+				2B4E694525FD015900368AF7 /* LHShopSearchRecommandModel.m in Sources */,
 				2BFE34D525EE6ADA0066FC2F /* LHMainTopView.m in Sources */,
 				2BFE34FE25EE8DCB0066FC2F /* LHShopListModel.m in Sources */,
 				2B61D49725F34F1D00E308F3 /* LHBaseViewController.m in Sources */,
+				2B3302A025FCF1F70052AD35 /* LHSeachItemCollectionCell.m in Sources */,
 				2B5052A425EE52A500E89CF7 /* SceneDelegate.m in Sources */,
 				2BE73EED25F385A600257753 /* LHShopListViewController.m in Sources */,
 				2BE73F2A25F3C2F600257753 /* LHMainHeaderView.m in Sources */,

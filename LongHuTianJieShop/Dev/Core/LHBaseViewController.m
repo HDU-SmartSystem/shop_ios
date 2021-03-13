@@ -48,7 +48,14 @@
 }
 
 - (void)goBack {
+    if(self.backBlock) {
+        self.backBlock();
+    }
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleDarkContent;
 }
 
 @end

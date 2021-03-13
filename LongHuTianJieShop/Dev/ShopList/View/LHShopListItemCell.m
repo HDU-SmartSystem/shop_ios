@@ -12,6 +12,7 @@
 #import "LHShopListModel.h"
 #import <SDWebImage/SDWebImage.h>
 #import "UIColor+LHExtention.h"
+#import "UIFont+LHExtention.h"
 
 @interface LHShopListItemCell ()
 @property(nonatomic,strong) UIImageView *shopImageView;
@@ -42,7 +43,8 @@
     self.shopImageView.layer.cornerRadius = 4;
     self.shopImageView.layer.masksToBounds = YES;
     
-    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.shopImageView.right + 6, 12, 0, 24)];
+    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.shopImageView.right + 6, 12, SCREEN_WIDTH - 18 - 24 - 84 - 6, 24)];
+    self.titleLabel.numberOfLines = 2;
     self.titleLabel.font = [UIFont systemFontOfSize:16 weight:UIFontWeightMedium];
     self.titleLabel.textColor = [UIColor blackColor];
     
@@ -70,14 +72,21 @@
     [self.shopImageView sd_setImageWithURL:imageUrl];
     
     self.titleLabel.text = model.name;
-    self.titleLabel.width = [model.name widthWithFont:[UIFont systemFontOfSize:16 weight:UIFontWeightMedium] height:24];
+    CGFloat height = [model.name heightWithFont:[UIFont themeFontMedium:16] width:self.titleLabel.width];
+    if(height > 24) {
+        self.titleLabel.height = 40;
+    } else {
+        self.titleLabel.height = 24;
+    }
     
     NSString *comment = [NSString stringWithFormat:@"%@条",model.commentNum];
+    self.commentLabel.top = self.titleLabel.bottom + 5;
     self.commentLabel.text = comment;
-    self.commentLabel.width = [comment widthWithFont:[UIFont systemFontOfSize:14 weight:UIFontWeightRegular] height:20];
+    self.commentLabel.width = [comment widthWithFont:[UIFont themeFontRegular:14] height:20];
     
+    self.descLabel.top = self.commentLabel.bottom + 5;
     self.descLabel.text = model.tag;
-    self.descLabel.width = [model.tag widthWithFont:[UIFont systemFontOfSize:14 weight:UIFontWeightRegular] height:20];
+    self.descLabel.width = [model.tag widthWithFont:[UIFont themeFontRegular:14] height:20];
 }
 
 
