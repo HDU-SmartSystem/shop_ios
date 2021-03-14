@@ -15,6 +15,10 @@
 		2B38985A25FDF0D100096C3D /* LHMapLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B38985925FDF0D100096C3D /* LHMapLocationManager.m */; };
 		2B38985E25FDFC2E00096C3D /* LHShopListFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B38985D25FDFC2E00096C3D /* LHShopListFilterView.m */; };
 		2B38986225FE10B400096C3D /* LHShopListFilterListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B38986125FE10B400096C3D /* LHShopListFilterListView.m */; };
+		2B38986625FE363800096C3D /* LHAccoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B38986525FE363800096C3D /* LHAccoutManager.m */; };
+		2B38986A25FE454800096C3D /* LHLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B38986925FE454800096C3D /* LHLoginViewController.m */; };
+		2B38986F25FE5AA100096C3D /* LHUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B38986E25FE5AA100096C3D /* LHUserModel.m */; };
+		2B38987325FE5DD600096C3D /* LHToastManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B38987225FE5DD600096C3D /* LHToastManager.m */; };
 		2B4E694525FD015900368AF7 /* LHShopSearchRecommandModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4E694325FD015900368AF7 /* LHShopSearchRecommandModel.m */; };
 		2B4E694925FD250300368AF7 /* LHSearchHistoryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4E694825FD250300368AF7 /* LHSearchHistoryManager.m */; };
 		2B4E694D25FD2E1A00368AF7 /* LHLauchManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4E694C25FD2E1A00368AF7 /* LHLauchManger.m */; };
@@ -70,6 +74,14 @@
 		2B38985D25FDFC2E00096C3D /* LHShopListFilterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LHShopListFilterView.m; sourceTree = "<group>"; };
 		2B38986025FE10B400096C3D /* LHShopListFilterListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LHShopListFilterListView.h; sourceTree = "<group>"; };
 		2B38986125FE10B400096C3D /* LHShopListFilterListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LHShopListFilterListView.m; sourceTree = "<group>"; };
+		2B38986425FE363800096C3D /* LHAccoutManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LHAccoutManager.h; sourceTree = "<group>"; };
+		2B38986525FE363800096C3D /* LHAccoutManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LHAccoutManager.m; sourceTree = "<group>"; };
+		2B38986825FE454800096C3D /* LHLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LHLoginViewController.h; sourceTree = "<group>"; };
+		2B38986925FE454800096C3D /* LHLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LHLoginViewController.m; sourceTree = "<group>"; };
+		2B38986D25FE5AA100096C3D /* LHUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LHUserModel.h; sourceTree = "<group>"; };
+		2B38986E25FE5AA100096C3D /* LHUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LHUserModel.m; sourceTree = "<group>"; };
+		2B38987125FE5DD600096C3D /* LHToastManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LHToastManager.h; sourceTree = "<group>"; };
+		2B38987225FE5DD600096C3D /* LHToastManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LHToastManager.m; sourceTree = "<group>"; };
 		2B4E694325FD015900368AF7 /* LHShopSearchRecommandModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LHShopSearchRecommandModel.m; sourceTree = "<group>"; };
 		2B4E694425FD015900368AF7 /* LHShopSearchRecommandModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LHShopSearchRecommandModel.h; sourceTree = "<group>"; };
 		2B4E694725FD250300368AF7 /* LHSearchHistoryManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LHSearchHistoryManager.h; sourceTree = "<group>"; };
@@ -156,6 +168,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B38986C25FE5A8D00096C3D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2B38986D25FE5AA100096C3D /* LHUserModel.h */,
+				2B38986E25FE5AA100096C3D /* LHUserModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		2B4E694225FD014200368AF7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -369,8 +390,15 @@
 		2BFE34C625EE68EA0066FC2F /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				2B38986C25FE5A8D00096C3D /* Model */,
 				2BBCFE0225EE5F1800C9513F /* LHMineViewController.h */,
 				2BBCFE0325EE5F1800C9513F /* LHMineViewController.m */,
+				2B38986425FE363800096C3D /* LHAccoutManager.h */,
+				2B38986525FE363800096C3D /* LHAccoutManager.m */,
+				2B38986825FE454800096C3D /* LHLoginViewController.h */,
+				2B38986925FE454800096C3D /* LHLoginViewController.m */,
+				2B38987125FE5DD600096C3D /* LHToastManager.h */,
+				2B38987225FE5DD600096C3D /* LHToastManager.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -586,11 +614,13 @@
 				2B81C3AF25EE59060010A748 /* LHTabViewController.m in Sources */,
 				2B38985A25FDF0D100096C3D /* LHMapLocationManager.m in Sources */,
 				2B38986225FE10B400096C3D /* LHShopListFilterListView.m in Sources */,
+				2B38987325FE5DD600096C3D /* LHToastManager.m in Sources */,
 				2B5052A125EE52A500E89CF7 /* AppDelegate.m in Sources */,
 				2B5052B225EE52A800E89CF7 /* main.m in Sources */,
 				2BE73EDD25F374E300257753 /* LHSearchBarView.m in Sources */,
 				2BFE34C925EE690E0066FC2F /* LHShopViewController.m in Sources */,
 				2BFE350225EE92890066FC2F /* LHShopListItemCell.m in Sources */,
+				2B38986625FE363800096C3D /* LHAccoutManager.m in Sources */,
 				2BBCFE0A25EE643400C9513F /* LHMainViewModel.m in Sources */,
 				2BE73EE225F37EDE00257753 /* LHSearchViewModel.m in Sources */,
 				2B38984B25FDE32600096C3D /* LHMapViewController.m in Sources */,
@@ -610,6 +640,7 @@
 				2B61D49225F3464000E308F3 /* LHWindowManager.m in Sources */,
 				2B33029825FCED300052AD35 /* LHSearchHistoryView.m in Sources */,
 				2B33029C25FCEF1D0052AD35 /* LHSearchHistoryFlowLayout.m in Sources */,
+				2B38986A25FE454800096C3D /* LHLoginViewController.m in Sources */,
 				2B4E694925FD250300368AF7 /* LHSearchHistoryManager.m in Sources */,
 				2B4E694525FD015900368AF7 /* LHShopSearchRecommandModel.m in Sources */,
 				2BFE34D525EE6ADA0066FC2F /* LHMainTopView.m in Sources */,
@@ -620,6 +651,7 @@
 				2B5052A425EE52A500E89CF7 /* SceneDelegate.m in Sources */,
 				2BE73EED25F385A600257753 /* LHShopListViewController.m in Sources */,
 				2BE73F2A25F3C2F600257753 /* LHMainHeaderView.m in Sources */,
+				2B38986F25FE5AA100096C3D /* LHUserModel.m in Sources */,
 				2BBCFDFC25EE5B3800C9513F /* LHMainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

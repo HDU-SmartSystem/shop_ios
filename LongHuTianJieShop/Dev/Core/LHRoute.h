@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface LHRoute : NSObject
 + (instancetype)shareInstance;
 - (void)pushViewControllerWithURL:(NSString *)url params:(nullable NSDictionary *)params;
+- (void)presentViewControllerWithURL:(NSString *)url params:(nullable NSDictionary *)params;
 //- (BOOL)canOpenWithURL:(NSString *)url;
 @end
 

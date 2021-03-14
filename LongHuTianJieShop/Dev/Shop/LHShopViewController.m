@@ -72,5 +72,8 @@
     }];
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleDarkContent;
+}
 
 @end

@@ -10,6 +10,7 @@
 #import <BaiduMapAPI_Base/BMKBaseComponent.h>
 #import <BMKLocationKit/BMKLocationComponent.h>
 #import "LHMapLocationManager.h"
+#import "LHAccoutManager.h"
 
 @implementation LHLauchManger
 
@@ -26,6 +27,7 @@
 - (void)processAtBegin {
     [[LHSearchHistoryManager shareInstance] loadHistoryData];
     [self baiduMapConfigure];
+    [[LHAccoutManager shareInstance] loadUserData];
 }
 
 

@@ -10,6 +10,7 @@
 #import <JSONModel/JSONModel.h>
 #import "LHShopListModel.h"
 #import "LHShopSearchRecommandModel.h"
+#import "LHUserModel.h"
 
 @implementation LHAPI
 
@@ -59,6 +60,20 @@
     }];
 }
 
++ (void)requestLoginWithUserName:(NSString *)userName passWord:(NSString *)passWord completion:(completionBlock)completion {
+    NSString *urlString = [[self host] stringByAppendingString:@"/login"];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"username"] = userName;
+    params[@"password"] = passWord;
+
+    [self postWithURL:urlString params:params dataClass:[LHUserModel class] completion:^(JSONModel * _Nonnull model) {
+        if(completion) {
+            completion(model);
+        }
+    }];
+}
+
+
 
 + (void)requestWithURL:(NSString *)url params:(NSDictionary *)params dataClass:(Class)dataClass completion:(nonnull completionBlock)completion {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
@@ -74,6 +89,19 @@
     }];
 }
 
++ (void)postWithURL:(NSString *)url params:(NSDictionary *)params dataClass:(Class)dataClass completion:(nonnull completionBlock)completion {
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager POST:url parameters:params headers:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        JSONModel *model = [self generateModelFromResponseObject:responseObject dataClass:dataClass];
+        if(completion) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion(model);
+            });
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+    }];
+}
 
 + (JSONModel *)generateModelFromResponseObject:(id)responseObject dataClass:(Class)dataClass {
     if([responseObject isKindOfClass: [NSDictionary class]]) {
