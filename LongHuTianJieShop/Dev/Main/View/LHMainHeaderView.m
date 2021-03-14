@@ -61,7 +61,7 @@
         @"make_up",
         @"jewellery",
         @"furniture",
-        @"arder",
+        @"amusement",
         @"digital",
         @"parenting",
         @"education",
