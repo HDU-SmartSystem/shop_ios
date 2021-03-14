@@ -11,6 +11,10 @@
 		2B33029C25FCEF1D0052AD35 /* LHSearchHistoryFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B33029B25FCEF1D0052AD35 /* LHSearchHistoryFlowLayout.m */; };
 		2B3302A025FCF1F70052AD35 /* LHSeachItemCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B33029F25FCF1F70052AD35 /* LHSeachItemCollectionCell.m */; };
 		2B3302AC25FCF4560052AD35 /* UIFont+LHExtention.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3302AB25FCF4560052AD35 /* UIFont+LHExtention.m */; };
+		2B38984B25FDE32600096C3D /* LHMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B38984A25FDE32600096C3D /* LHMapViewController.m */; };
+		2B38985A25FDF0D100096C3D /* LHMapLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B38985925FDF0D100096C3D /* LHMapLocationManager.m */; };
+		2B38985E25FDFC2E00096C3D /* LHShopListFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B38985D25FDFC2E00096C3D /* LHShopListFilterView.m */; };
+		2B38986225FE10B400096C3D /* LHShopListFilterListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B38986125FE10B400096C3D /* LHShopListFilterListView.m */; };
 		2B4E694525FD015900368AF7 /* LHShopSearchRecommandModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4E694325FD015900368AF7 /* LHShopSearchRecommandModel.m */; };
 		2B4E694925FD250300368AF7 /* LHSearchHistoryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4E694825FD250300368AF7 /* LHSearchHistoryManager.m */; };
 		2B4E694D25FD2E1A00368AF7 /* LHLauchManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4E694C25FD2E1A00368AF7 /* LHLauchManger.m */; };
@@ -58,6 +62,14 @@
 		2B33029F25FCF1F70052AD35 /* LHSeachItemCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LHSeachItemCollectionCell.m; sourceTree = "<group>"; };
 		2B3302AA25FCF4560052AD35 /* UIFont+LHExtention.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIFont+LHExtention.h"; sourceTree = "<group>"; };
 		2B3302AB25FCF4560052AD35 /* UIFont+LHExtention.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIFont+LHExtention.m"; sourceTree = "<group>"; };
+		2B38984925FDE32600096C3D /* LHMapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LHMapViewController.h; sourceTree = "<group>"; };
+		2B38984A25FDE32600096C3D /* LHMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LHMapViewController.m; sourceTree = "<group>"; };
+		2B38985825FDF0D100096C3D /* LHMapLocationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LHMapLocationManager.h; sourceTree = "<group>"; };
+		2B38985925FDF0D100096C3D /* LHMapLocationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LHMapLocationManager.m; sourceTree = "<group>"; };
+		2B38985C25FDFC2E00096C3D /* LHShopListFilterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LHShopListFilterView.h; sourceTree = "<group>"; };
+		2B38985D25FDFC2E00096C3D /* LHShopListFilterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LHShopListFilterView.m; sourceTree = "<group>"; };
+		2B38986025FE10B400096C3D /* LHShopListFilterListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LHShopListFilterListView.h; sourceTree = "<group>"; };
+		2B38986125FE10B400096C3D /* LHShopListFilterListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LHShopListFilterListView.m; sourceTree = "<group>"; };
 		2B4E694325FD015900368AF7 /* LHShopSearchRecommandModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LHShopSearchRecommandModel.m; sourceTree = "<group>"; };
 		2B4E694425FD015900368AF7 /* LHShopSearchRecommandModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LHShopSearchRecommandModel.h; sourceTree = "<group>"; };
 		2B4E694725FD250300368AF7 /* LHSearchHistoryManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LHSearchHistoryManager.h; sourceTree = "<group>"; };
@@ -346,6 +358,10 @@
 			children = (
 				2BFE350025EE92890066FC2F /* LHShopListItemCell.h */,
 				2BFE350125EE92890066FC2F /* LHShopListItemCell.m */,
+				2B38985C25FDFC2E00096C3D /* LHShopListFilterView.h */,
+				2B38985D25FDFC2E00096C3D /* LHShopListFilterView.m */,
+				2B38986025FE10B400096C3D /* LHShopListFilterListView.h */,
+				2B38986125FE10B400096C3D /* LHShopListFilterListView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -364,6 +380,10 @@
 			children = (
 				2BFE34C725EE690E0066FC2F /* LHShopViewController.h */,
 				2BFE34C825EE690E0066FC2F /* LHShopViewController.m */,
+				2B38984925FDE32600096C3D /* LHMapViewController.h */,
+				2B38984A25FDE32600096C3D /* LHMapViewController.m */,
+				2B38985825FDF0D100096C3D /* LHMapLocationManager.h */,
+				2B38985925FDF0D100096C3D /* LHMapLocationManager.m */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -564,6 +584,8 @@
 				2BFE34F025EE87240066FC2F /* LHAPI.m in Sources */,
 				2B3302AC25FCF4560052AD35 /* UIFont+LHExtention.m in Sources */,
 				2B81C3AF25EE59060010A748 /* LHTabViewController.m in Sources */,
+				2B38985A25FDF0D100096C3D /* LHMapLocationManager.m in Sources */,
+				2B38986225FE10B400096C3D /* LHShopListFilterListView.m in Sources */,
 				2B5052A125EE52A500E89CF7 /* AppDelegate.m in Sources */,
 				2B5052B225EE52A800E89CF7 /* main.m in Sources */,
 				2BE73EDD25F374E300257753 /* LHSearchBarView.m in Sources */,
@@ -571,6 +593,7 @@
 				2BFE350225EE92890066FC2F /* LHShopListItemCell.m in Sources */,
 				2BBCFE0A25EE643400C9513F /* LHMainViewModel.m in Sources */,
 				2BE73EE225F37EDE00257753 /* LHSearchViewModel.m in Sources */,
+				2B38984B25FDE32600096C3D /* LHMapViewController.m in Sources */,
 				2B4E694D25FD2E1A00368AF7 /* LHLauchManger.m in Sources */,
 				2BFE34DF25EE70B70066FC2F /* NSString+LHExtention.m in Sources */,
 				2BE73F2225F3BB8000257753 /* LHBaseTableViewCell.m in Sources */,
@@ -591,6 +614,7 @@
 				2B4E694525FD015900368AF7 /* LHShopSearchRecommandModel.m in Sources */,
 				2BFE34D525EE6ADA0066FC2F /* LHMainTopView.m in Sources */,
 				2BFE34FE25EE8DCB0066FC2F /* LHShopListModel.m in Sources */,
+				2B38985E25FDFC2E00096C3D /* LHShopListFilterView.m in Sources */,
 				2B61D49725F34F1D00E308F3 /* LHBaseViewController.m in Sources */,
 				2B3302A025FCF1F70052AD35 /* LHSeachItemCollectionCell.m in Sources */,
 				2B5052A425EE52A500E89CF7 /* SceneDelegate.m in Sources */,

@@ -7,6 +7,9 @@
 
 #import "LHLauchManger.h"
 #import "LHSearchHistoryManager.h"
+#import <BaiduMapAPI_Base/BMKBaseComponent.h>
+#import <BMKLocationKit/BMKLocationComponent.h>
+#import "LHMapLocationManager.h"
 
 @implementation LHLauchManger
 
@@ -22,5 +25,16 @@
 
 - (void)processAtBegin {
     [[LHSearchHistoryManager shareInstance] loadHistoryData];
+    [self baiduMapConfigure];
 }
+
+
+- (void)baiduMapConfigure {
+    [[BMKMapManager sharedInstance] start:@"qdDpHIIIrhSBlBInj8gsZMiMRA8Gpi37" generalDelegate:nil];
+    [BMKMapManager setCoordinateTypeUsedInBaiduMapSDK:BMK_COORDTYPE_BD09LL];
+    [[BMKLocationAuth sharedInstance] checkPermisionWithKey:@"qdDpHIIIrhSBlBInj8gsZMiMRA8Gpi37" authDelegate:nil];
+    [[LHMapLocationManager shareInstance] requestLocationWithCompletionBlock:nil];
+}
+
+
 @end

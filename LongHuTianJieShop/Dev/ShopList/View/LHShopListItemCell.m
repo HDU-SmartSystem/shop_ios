@@ -34,7 +34,7 @@
 
 -(void)setupView {
     self.contentView.backgroundColor = [UIColor colorWithHexString:@"#f5f5f5"];
-    self.containerView = [[UIView alloc] initWithFrame:CGRectMake(9, 0, SCREEN_WIDTH - 18, 84 + 12 * 2)];
+    self.containerView = [[UIView alloc] initWithFrame:CGRectMake(9 ,5, SCREEN_WIDTH - 18, 84 + 12 * 2)];
     self.containerView.backgroundColor = [UIColor whiteColor];
     self.containerView.layer.cornerRadius = 10;
     self.containerView.layer.masksToBounds = YES;

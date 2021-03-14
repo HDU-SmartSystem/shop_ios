@@ -7,4 +7,6 @@ target 'LongHuTianJieShop' do
   pod 'JSONModel'
   pod 'SDWebImage', '~> 5.0'
   pod 'MJRefresh'
+  pod 'BaiduNaviKit', '6.0.0'
+  pod 'BMKLocationKit'
 end

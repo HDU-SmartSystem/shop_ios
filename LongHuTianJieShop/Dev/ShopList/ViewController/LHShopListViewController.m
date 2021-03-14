@@ -48,7 +48,7 @@
 }
 
 - (void)setupViewModel {
-    self.viewModel = [[LHShopListViewModel alloc] initWithTableView:self.tableView listType:self.listType params:self.params];
+    self.viewModel = [[LHShopListViewModel alloc] initWithViewController:self tableView:self.tableView listType:self.listType params:self.params];
 }
 
 -(void)updateFrame:(CGRect)frame {

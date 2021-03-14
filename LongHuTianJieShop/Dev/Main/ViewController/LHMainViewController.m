@@ -41,7 +41,7 @@
     self.shopListVC = [[LHShopListViewController alloc] initWithListType:LHShopListTypeCategory params:@{@"category":@"child"}];
     [self.view addSubview:self.shopListVC.view];
     [self.shopListVC updateFrame:CGRectMake(0, self.topView.bottom, SCREEN_WIDTH, SCREEN_HEIGHT - self.topView.bottom - [LHWindowManager shareInstance].currentNavigationController.tabBarController.tabBar.height)];
-    LHMainHeaderView *headerView = [[LHMainHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 160 + 18)];
+    LHMainHeaderView *headerView = [[LHMainHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 160 + 9)];
     self.shopListVC.tableView.tableHeaderView = headerView;
 }
 

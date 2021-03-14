@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LHShopListViewModel : NSObject
-- (instancetype)initWithTableView:(UITableView *)tableView listType:(LHShopListType)type params:(nullable NSDictionary *)params;
+- (instancetype)initWithViewController:(LHShopListViewController *)viewController tableView:(UITableView *)tableView listType:(LHShopListType)type params:(nullable NSDictionary *)params;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -37,7 +37,7 @@
     layout.minimumInteritemSpacing = 0;
     layout.scrollDirection = UICollectionViewScrollDirectionVertical;
     layout.numberOfLine = 2;
-    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(12, 9, self.width - 24, self.height - 18) collectionViewLayout:layout];
+    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(12, 9, self.width - 24, self.height - 9) collectionViewLayout:layout];
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     self.collectionView.backgroundColor = [UIColor clearColor];

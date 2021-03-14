@@ -14,6 +14,9 @@
 #import <MJRefresh/MJRefresh.h>
 #import "UIViewAdditions.h"
 #import "NSString+LHExtention.h"
+#import "LHShopListFilterView.h"
+#import "LHShopListFilterView.h"
+#import "LHWindowManager.h"
 
 @interface LHShopListViewModel () <UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic,weak) UITableView *tableView;
@@ -22,19 +25,24 @@
 @property(nonatomic,assign) LHShopListType listType;
 @property(nonatomic,copy) NSDictionary* params;
 @property(nonatomic,assign) NSInteger pageNumber;
+@property(nonatomic,copy) NSArray *filterArray;
+@property(nonatomic,strong) LHShopListFilterView *filterView;
+@property(nonatomic,weak) LHShopListViewController *viewController;
 @end
 
 @implementation LHShopListViewModel
 
--(instancetype)initWithTableView:(UITableView *)tableView listType:(LHShopListType)type params:(nullable NSDictionary *)params {
+-(instancetype)initWithViewController:(LHShopListViewController *)viewController tableView:(UITableView *)tableView listType:(LHShopListType)type params:(NSDictionary *)params {
     if(self = [super init]){
         self.tableView = tableView;
+        self.viewController = viewController;
         self.listType = type;
         self.params = params;
         self.pageNumber = 0;
-        [self configTableView];
         self.dataList = [NSMutableArray array];
         self.isLastSuccess = YES;
+        [self configFilterView];
+        [self configTableView];
         [self requestData];
     }
     return self;
@@ -44,9 +52,6 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     [self.tableView registerClass:[LHShopListItemCell class] forCellReuseIdentifier:NSStringFromClass([LHShopListDataModel class])];
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 5)];
-    headerView.backgroundColor = [UIColor colorWithHexString:@"#f5f5f5"];
-    self.tableView.tableHeaderView = headerView;
     WeakSelf;
     MJRefreshAutoStateFooter *footer =  [MJRefreshAutoStateFooter footerWithRefreshingBlock:^{
         StrongSelf;
@@ -58,6 +63,16 @@
     self.tableView.mj_footer = footer;
     self.tableView.mj_footer.hidden = YES;
 }
+
+- (void)configFilterView {
+    NSArray *filterArray = self.params[@"filter_data"];
+    self.filterArray = filterArray;
+    
+    self.filterView = [[LHShopListFilterView alloc] initWithTableView:self.tableView viewController:self.viewController];
+    self.filterView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 44);
+    [self.filterView updateWithArray:self.filterArray];
+}
+
 
 -(void)requestData {
     WeakSelf;
@@ -112,6 +127,20 @@
     return self.dataList.count;
 }
 
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if(section == 0 && self.filterArray.count) {
+        return self.filterView;
+    }
+    return nil;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if(section == 0 && self.filterArray.count) {
+        return 44;
+    }
+    return CGFLOAT_MIN;
+}
+
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     NSUInteger index = indexPath.row;
     if(index < self.dataList.count) {
@@ -128,16 +157,8 @@
     return [[UITableViewCell alloc] initWithFrame:CGRectZero];
 }
 
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    return nil;
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return CGFLOAT_MIN;
-}
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 84 + 12 * 2 + 5;
+    return 84 + 12 * 2 + 10;
 }
 
 
