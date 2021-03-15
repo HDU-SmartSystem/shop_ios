@@ -14,6 +14,7 @@
 #import "LHRoute.h"
 #import "LHWindowManager.h"
 #import "LHCommonDefine.h"
+#import <SDWebImage.h>
 
 #define itemWidth 60
 #define itemHieght 70
@@ -60,6 +61,23 @@
         settingIcon.image = [UIImage imageNamed:@"setting_icon"];
         [self.view addSubview:settingIcon];
         
+        UIImageView *userIcon = [[UIImageView alloc] initWithFrame:CGRectMake(20, topInset + 10, 54, 54)];
+        [userIcon sd_setImageWithURL:[NSURL URLWithString:[LHAccoutManager shareInstance].user.headImg]];
+        [bgView addSubview:userIcon];
+        
+        UILabel *userNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(userIcon.right + 5, userIcon.top , 0, 28)];
+        userNameLabel.font = [UIFont themeFontMedium:20];
+        userNameLabel.text = [LHAccoutManager shareInstance].user.nickname;
+        userNameLabel.width = [userNameLabel.text widthWithFont:[UIFont themeFontMedium:20] height:28];
+        [bgView addSubview:userNameLabel];
+        
+        UILabel *phoneLabel = [[UILabel alloc] initWithFrame:CGRectMake(userIcon.right + 5, userNameLabel.bottom , 0, 20)];
+        phoneLabel.font = [UIFont themeFontRegular:14];
+        phoneLabel.text = [LHAccoutManager shareInstance].user.phone;
+        phoneLabel.width = [phoneLabel.text widthWithFont:[UIFont themeFontRegular:14] height:20];
+        [bgView addSubview:phoneLabel];
+
+        
         UIView *mineServerView = [[UIView alloc] initWithFrame:CGRectMake(9, bgView.bottom - 30, SCREEN_WIDTH - 18, 110)];
         mineServerView.backgroundColor = [UIColor whiteColor];
         mineServerView.layer.cornerRadius = 10;
@@ -74,6 +92,7 @@
         
         LHMineItemView *collectView = [[LHMineItemView alloc] initWithFrame:CGRectMake(12, mineServerLabel.bottom + 10, itemWidth, itemHieght)];
         [collectView updateWithImageName:@"mine_collect" labelText:@"我的收藏"];
+        [collectView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(goCollection)]];
         [mineServerView addSubview:collectView];
 
     }
@@ -81,6 +100,10 @@
 
 - (void)goLogin {
     [[LHRoute shareInstance] presentViewControllerWithURL:@"sslocal://login" params:nil];
+}
+
+- (void)goCollection {
+    [[LHRoute shareInstance] pushViewControllerWithURL:@"sslocal://collection" params:nil];
 }
 
 - (void)loginSuccess {

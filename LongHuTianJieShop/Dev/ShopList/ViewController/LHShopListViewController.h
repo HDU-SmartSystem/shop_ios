@@ -10,7 +10,8 @@
 NS_ASSUME_NONNULL_BEGIN
 typedef NS_ENUM(NSInteger,LHShopListType) {
     LHShopListTypeSearch,
-    LHShopListTypeCategory
+    LHShopListTypeCategory,
+    LHShopListTypeCollection,
 };
 
 @interface LHShopListViewController : UIViewController

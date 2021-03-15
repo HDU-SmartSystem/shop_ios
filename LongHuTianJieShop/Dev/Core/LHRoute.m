@@ -78,6 +78,7 @@
             @"search_result" : @"LHSearchResultViewController",
             @"category_list" : @"LHMainCategoryViewController",
             @"login" : @"LHLoginViewController",
+            @"collection" : @"LHMineCollectionViewController",
         };
     });
     NSString *name = [nameDict valueForKey:url];

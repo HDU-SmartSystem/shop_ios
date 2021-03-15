@@ -18,6 +18,20 @@
     return @"http://47.98.36.4:8629";
 }
 
++ (void)requestCollectionWithUserId:(NSString *)userId Page:(NSInteger)page completion:(completionBlock)completion {
+    NSString *urlString = [[self host] stringByAppendingString:@"/user/collection"];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"userId"] = userId ?: @"null";
+    params[@"page"] = @(page);
+    
+    [self requestWithURL:urlString params:params dataClass:[LHShopListModel class] completion:^(JSONModel * _Nonnull model) {
+        if(completion) {
+            completion(model);
+        }
+    }];
+    
+}
+
 + (void)requestShopListWithCategory:(NSString *)category field:(NSString *)field keyword:(NSString *)keyword page:(NSInteger)page completion:(nonnull completionBlock)completion {
     NSString *urlString = [[self host] stringByAppendingString:@"/search"];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];

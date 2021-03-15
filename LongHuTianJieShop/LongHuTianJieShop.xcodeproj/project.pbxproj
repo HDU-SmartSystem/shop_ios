@@ -19,6 +19,7 @@
 		2B38986A25FE454800096C3D /* LHLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B38986925FE454800096C3D /* LHLoginViewController.m */; };
 		2B38986F25FE5AA100096C3D /* LHUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B38986E25FE5AA100096C3D /* LHUserModel.m */; };
 		2B38987325FE5DD600096C3D /* LHToastManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B38987225FE5DD600096C3D /* LHToastManager.m */; };
+		2B38987725FF165500096C3D /* LHMineCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B38987625FF165500096C3D /* LHMineCollectionViewController.m */; };
 		2B4E694525FD015900368AF7 /* LHShopSearchRecommandModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4E694325FD015900368AF7 /* LHShopSearchRecommandModel.m */; };
 		2B4E694925FD250300368AF7 /* LHSearchHistoryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4E694825FD250300368AF7 /* LHSearchHistoryManager.m */; };
 		2B4E694D25FD2E1A00368AF7 /* LHLauchManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4E694C25FD2E1A00368AF7 /* LHLauchManger.m */; };
@@ -82,6 +83,8 @@
 		2B38986E25FE5AA100096C3D /* LHUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LHUserModel.m; sourceTree = "<group>"; };
 		2B38987125FE5DD600096C3D /* LHToastManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LHToastManager.h; sourceTree = "<group>"; };
 		2B38987225FE5DD600096C3D /* LHToastManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LHToastManager.m; sourceTree = "<group>"; };
+		2B38987525FF165500096C3D /* LHMineCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LHMineCollectionViewController.h; sourceTree = "<group>"; };
+		2B38987625FF165500096C3D /* LHMineCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LHMineCollectionViewController.m; sourceTree = "<group>"; };
 		2B4E694325FD015900368AF7 /* LHShopSearchRecommandModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LHShopSearchRecommandModel.m; sourceTree = "<group>"; };
 		2B4E694425FD015900368AF7 /* LHShopSearchRecommandModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LHShopSearchRecommandModel.h; sourceTree = "<group>"; };
 		2B4E694725FD250300368AF7 /* LHSearchHistoryManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LHSearchHistoryManager.h; sourceTree = "<group>"; };
@@ -399,6 +402,8 @@
 				2B38986925FE454800096C3D /* LHLoginViewController.m */,
 				2B38987125FE5DD600096C3D /* LHToastManager.h */,
 				2B38987225FE5DD600096C3D /* LHToastManager.m */,
+				2B38987525FF165500096C3D /* LHMineCollectionViewController.h */,
+				2B38987625FF165500096C3D /* LHMineCollectionViewController.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -643,6 +648,7 @@
 				2B38986A25FE454800096C3D /* LHLoginViewController.m in Sources */,
 				2B4E694925FD250300368AF7 /* LHSearchHistoryManager.m in Sources */,
 				2B4E694525FD015900368AF7 /* LHShopSearchRecommandModel.m in Sources */,
+				2B38987725FF165500096C3D /* LHMineCollectionViewController.m in Sources */,
 				2BFE34D525EE6ADA0066FC2F /* LHMainTopView.m in Sources */,
 				2BFE34FE25EE8DCB0066FC2F /* LHShopListModel.m in Sources */,
 				2B38985E25FDFC2E00096C3D /* LHShopListFilterView.m in Sources */,

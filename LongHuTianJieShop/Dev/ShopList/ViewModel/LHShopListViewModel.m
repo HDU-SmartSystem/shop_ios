@@ -17,6 +17,7 @@
 #import "LHShopListFilterView.h"
 #import "LHShopListFilterView.h"
 #import "LHWindowManager.h"
+#import "LHAccoutManager.h"
 
 @interface LHShopListViewModel () <UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic,weak) UITableView *tableView;
@@ -110,6 +111,11 @@
                 [LHAPI requestShopListWithCategory:category field:field keyword:keyword page:self.pageNumber completion:completionBlk];
 
                 break;
+            }
+            case LHShopListTypeCollection:
+            {
+                NSString *userId = [LHAccoutManager shareInstance].user.userId;
+                [LHAPI requestCollectionWithUserId:userId Page:self.pageNumber completion:completionBlk];
             }
             default:
                 break;
