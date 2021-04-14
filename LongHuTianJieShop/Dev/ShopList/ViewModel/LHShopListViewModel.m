@@ -117,6 +117,11 @@
                 NSString *userId = [LHAccoutManager shareInstance].user.userId;
                 [LHAPI requestCollectionWithUserId:userId Page:self.pageNumber completion:completionBlk];
             }
+            case LHShopListTypeRecommand:
+            {
+                NSString *userId = [LHAccoutManager shareInstance].user.userId;
+                [LHAPI requestRecommandWithUserId:userId Page:self.pageNumber completion:completionBlk];
+            }
             default:
                 break;
         }

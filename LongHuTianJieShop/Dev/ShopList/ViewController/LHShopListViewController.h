@@ -12,6 +12,7 @@ typedef NS_ENUM(NSInteger,LHShopListType) {
     LHShopListTypeSearch,
     LHShopListTypeCategory,
     LHShopListTypeCollection,
+    LHShopListTypeRecommand,
 };
 
 @interface LHShopListViewController : UIViewController

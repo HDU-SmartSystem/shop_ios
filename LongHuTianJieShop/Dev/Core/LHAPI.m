@@ -15,7 +15,20 @@
 @implementation LHAPI
 
 + (NSString *)host {
-    return @"http://47.98.36.4:8629";
+    return @"http://120.55.51.51:8629";
+}
++ (void)requestRecommandWithUserId:(NSString *)userId Page:(NSInteger)page completion:(completionBlock)completion {
+    NSString *urlString = [@"http://127.0.0.1:5000" stringByAppendingString:@"/user/recommand"];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"userId"] = userId ?: @"null";
+    params[@"page"] = @(page);
+
+    [self requestWithURL:urlString params:params dataClass:[LHShopListModel class] completion:^(JSONModel * _Nonnull model) {
+        if(completion) {
+            completion(model);
+        }
+    }];
+    
 }
 
 + (void)requestCollectionWithUserId:(NSString *)userId Page:(NSInteger)page completion:(completionBlock)completion {

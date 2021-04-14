@@ -66,4 +66,10 @@
     }
 }
 
+-(void)logout {
+    self.loginStatus = NO;
+    self.user = nil;
+    [[NSNotificationCenter defaultCenter] postNotificationName:kLHLogoutSuccessNotification object:nil userInfo:nil];
+}
+
 @end

@@ -79,6 +79,7 @@
             @"category_list" : @"LHMainCategoryViewController",
             @"login" : @"LHLoginViewController",
             @"collection" : @"LHMineCollectionViewController",
+            @"setting" : @"LHSettingViewController",
         };
     });
     NSString *name = [nameDict valueForKey:url];

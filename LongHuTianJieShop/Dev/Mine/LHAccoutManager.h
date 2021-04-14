@@ -11,12 +11,14 @@
 NS_ASSUME_NONNULL_BEGIN
 
 static NSString *kLHLoginSuccessNotification = @"kLHLoginSuccessNotification";
+static NSString *kLHLogoutSuccessNotification = @"kLHLogoutSuccessNotification";
 @interface LHAccoutManager : NSObject
-@property(nonatomic,strong) LHUserDataModel *user;
+@property(nonatomic,nullable,strong) LHUserDataModel *user;
 + (instancetype)shareInstance;
 - (void)loginWithUserName:(NSString *)userName passWord:(NSString *)passWord;
 - (void)loadUserData;
 - (BOOL)isLogin;
+- (void)logout;
 @end
 
 NS_ASSUME_NONNULL_END

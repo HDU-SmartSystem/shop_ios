@@ -36,9 +36,13 @@
     [self setupView];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess) name:kLHLoginSuccessNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(logoutSuccess) name:kLHLogoutSuccessNotification object:nil];
 }
 
 - (void)setupView {
+    for(UIView *view in self.view.subviews) {
+        [view removeFromSuperview];
+    }
     if(![[LHAccoutManager shareInstance] isLogin]) {
         self.loginButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 80, 30)];
         self.loginButton.layer.cornerRadius = 15;
@@ -50,15 +54,16 @@
         [self.view addSubview:self.loginButton];
         [self.loginButton addTarget:self action:@selector(goLogin) forControlEvents:UIControlEventTouchUpInside];
     } else {
-        self.loginButton.hidden = YES;
         self.view.backgroundColor = [UIColor colorWithHexString:@"#f5f5f5"];
         CGFloat topInset = [[LHWindowManager shareInstance] window].safeAreaInsets.top + 44;
         UIImageView *bgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, topInset + 110)];
         bgView.image = [UIImage imageNamed:@"mine_header_bg"];
         [self.view addSubview:bgView];
         
-        UIImageView *settingIcon = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 15 - 24, topInset - 10 - 24, 24, 24)];
-        settingIcon.image = [UIImage imageNamed:@"setting_icon"];
+        UIButton *settingIcon = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 15 - 24, topInset - 10 - 24, 24, 24)];
+        [settingIcon setImage:[UIImage imageNamed:@"setting_icon"] forState:UIControlStateNormal];
+        [settingIcon setImage:[UIImage imageNamed:@"setting_icon"] forState:UIControlStateHighlighted];
+        [settingIcon addTarget:self action:@selector(goSetting) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:settingIcon];
         
         UIImageView *userIcon = [[UIImageView alloc] initWithFrame:CGRectMake(20, topInset + 10, 54, 54)];
@@ -87,7 +92,7 @@
         UILabel *mineServerLabel = [[UILabel alloc] initWithFrame:CGRectMake(12, 10, SCREEN_WIDTH - 42, 20)];
         mineServerLabel.font = [UIFont themeFontMedium:16];
         mineServerLabel.textColor = [UIColor blackColor];
-        mineServerLabel.text = @"我的服务";
+        mineServerLabel.text = @"常用功能";
         [mineServerView addSubview:mineServerLabel];
         
         LHMineItemView *collectView = [[LHMineItemView alloc] initWithFrame:CGRectMake(12, mineServerLabel.bottom + 10, itemWidth, itemHieght)];
@@ -108,6 +113,14 @@
 
 - (void)loginSuccess {
     [self setupView];
+}
+
+- (void)logoutSuccess {
+    [self setupView];
+}
+
+- (void)goSetting {
+    [[LHRoute shareInstance] pushViewControllerWithURL:@"sslocal://setting" params:nil];
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle {

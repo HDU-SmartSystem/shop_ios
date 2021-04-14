@@ -4,6 +4,9 @@
 //
 //  Created by bytedance on 2021/3/2.
 //
+#import "UIColor+LHExtention.h"
+#import "UIFont+LHExtention.h"
+#import "UIViewAdditions.h"
 
 #ifndef LHCommonDefine_h
 #define LHCommonDefine_h

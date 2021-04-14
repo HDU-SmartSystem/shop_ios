@@ -17,6 +17,7 @@ typedef void(^completionBlock)(JSONModel *model);
 + (void)requestShopListWithCategory:(NSString *)category field:(NSString *)field keyword:(NSString *)keyword page:(NSInteger)page completion:(nonnull completionBlock)completion;
 + (void)requestSearchRecommandWithcompletion:(completionBlock)completion;
 + (void)requestLoginWithUserName:(NSString *)userName passWord:(NSString *)passWord completion:(completionBlock)completion;
++ (void)requestRecommandWithUserId:(NSString *)userId Page:(NSInteger)page completion:(completionBlock)completion;
 @end
 
 NS_ASSUME_NONNULL_END
