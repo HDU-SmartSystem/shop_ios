@@ -17,6 +17,7 @@
 #import "LHShopListFilterView.h"
 #import "LHShopListFilterView.h"
 #import "LHWindowManager.h"
+#import "LHRoute.h"
 #import "LHAccoutManager.h"
 
 @interface LHShopListViewModel () <UITableViewDataSource,UITableViewDelegate>
@@ -170,6 +171,18 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 84 + 12 * 2 + 10;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSUInteger index = indexPath.row;
+    if(index < self.dataList.count) {
+        LHShopListDataModel *model = [self.dataList objectAtIndex:index];
+        NSMutableDictionary *params = [NSMutableDictionary dictionary];
+        params[@"title"] = model.name;
+        params[@"image"] = model.picurl;
+        params[@"shopId"] = model.id;
+        [[LHRoute shareInstance] pushViewControllerWithURL:@"sslocal://shop_detail" params:params];
+    }
 }
 
 

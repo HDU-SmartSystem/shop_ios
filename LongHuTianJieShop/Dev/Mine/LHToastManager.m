@@ -23,6 +23,9 @@
 }
 
 - (void)showToastWithText:(NSString *)text {
+    [self showToastWithText:text time:2];
+}
+- (void)showToastWithText:(NSString *)text time:(NSTimeInterval)time {
     UIView *toastView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 44)];
     toastView.backgroundColor = [UIColor blackColor];
     toastView.layer.cornerRadius = 4;
@@ -42,13 +45,12 @@
     [UIView animateWithDuration:0.2 animations:^{
         toastView.alpha = 1;
     } completion:^(BOOL finished) {
-        [UIView animateWithDuration:2 animations:^{
+        [UIView animateWithDuration:time animations:^{
             toastView.alpha = 0;
         } completion:^(BOOL finished) {
             [toastView removeFromSuperview];
         }];
     }];
 }
-
 
 @end

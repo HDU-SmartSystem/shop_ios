@@ -11,6 +11,8 @@
 #import "LHShopListModel.h"
 #import "LHShopSearchRecommandModel.h"
 #import "LHUserModel.h"
+#import "LHShopDetailModel.h"
+#import "LHAccoutManager.h"
 
 @implementation LHAPI
 
@@ -29,6 +31,17 @@
         }
     }];
     
+}
++ (void)reqeustShopDetailWithShopId:(NSString *)shopId userId:(NSString *)userId completion:(completionBlock)completion {
+    NSString *urlString = [[self host] stringByAppendingString:[NSString stringWithFormat:@"/shop/%@?",shopId]];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"userId"] = userId ?: @"null";
+
+    [self requestWithURL:urlString params:params dataClass:[LHShopDetailModel class] completion:^(JSONModel * _Nonnull model) {
+        if(completion) {
+            completion(model);
+        }
+    }];
 }
 
 + (void)requestCollectionWithUserId:(NSString *)userId Page:(NSInteger)page completion:(completionBlock)completion {
@@ -100,6 +113,17 @@
     }];
 }
 
++ (void)addColletionWithShopId:(NSString *)shopId userId:(NSString *)userId completion:(completionBlock)completion {
+    NSString *urlString = [[self host] stringByAppendingString:@"/user/collection"];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"userId"] = userId;
+    params[@"shopId"] = shopId;
+    [self postWithURL:urlString params:params dataClass:[LHUserModel class] completion:^(JSONModel * _Nonnull model) {
+        if(completion) {
+            completion(model);
+        }
+    }];
+}
 
 
 + (void)requestWithURL:(NSString *)url params:(NSDictionary *)params dataClass:(Class)dataClass completion:(nonnull completionBlock)completion {
@@ -118,6 +142,10 @@
 
 + (void)postWithURL:(NSString *)url params:(NSDictionary *)params dataClass:(Class)dataClass completion:(nonnull completionBlock)completion {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    if([[LHAccoutManager shareInstance] isLogin]) {
+        manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+        [manager.requestSerializer setValue:[LHAccoutManager shareInstance].user.token forHTTPHeaderField:@"Authorization"];
+    }
     [manager POST:url parameters:params headers:nil progress:^(NSProgress * _Nonnull downloadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         JSONModel *model = [self generateModelFromResponseObject:responseObject dataClass:dataClass];

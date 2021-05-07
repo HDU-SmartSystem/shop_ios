@@ -9,4 +9,5 @@ target 'LongHuTianJieShop' do
   pod 'MJRefresh'
   pod 'BaiduNaviKit', '6.0.0'
   pod 'BMKLocationKit'
+  pod 'HMSegmentedControl'
 end

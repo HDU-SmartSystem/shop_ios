@@ -11,6 +11,10 @@
 		2B33029C25FCEF1D0052AD35 /* LHSearchHistoryFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B33029B25FCEF1D0052AD35 /* LHSearchHistoryFlowLayout.m */; };
 		2B3302A025FCF1F70052AD35 /* LHSeachItemCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B33029F25FCF1F70052AD35 /* LHSeachItemCollectionCell.m */; };
 		2B3302AC25FCF4560052AD35 /* UIFont+LHExtention.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3302AB25FCF4560052AD35 /* UIFont+LHExtention.m */; };
+		2B3821F82644017500FA1C9C /* LHShopDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3821F72644017500FA1C9C /* LHShopDetailViewController.m */; };
+		2B3821FC2644059C00FA1C9C /* LHShopDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3821FB2644059C00FA1C9C /* LHShopDetailHeaderView.m */; };
+		2B38220A26441B6E00FA1C9C /* LHHorizontalPagingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B38220826441B6E00FA1C9C /* LHHorizontalPagingView.m */; };
+		2B38220E2644266C00FA1C9C /* LHShopDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B38220D2644266C00FA1C9C /* LHShopDetailModel.m */; };
 		2B38984B25FDE32600096C3D /* LHMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B38984A25FDE32600096C3D /* LHMapViewController.m */; };
 		2B38985A25FDF0D100096C3D /* LHMapLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B38985925FDF0D100096C3D /* LHMapLocationManager.m */; };
 		2B38985E25FDFC2E00096C3D /* LHShopListFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B38985D25FDFC2E00096C3D /* LHShopListFilterView.m */; };
@@ -69,6 +73,14 @@
 		2B33029F25FCF1F70052AD35 /* LHSeachItemCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LHSeachItemCollectionCell.m; sourceTree = "<group>"; };
 		2B3302AA25FCF4560052AD35 /* UIFont+LHExtention.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIFont+LHExtention.h"; sourceTree = "<group>"; };
 		2B3302AB25FCF4560052AD35 /* UIFont+LHExtention.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIFont+LHExtention.m"; sourceTree = "<group>"; };
+		2B3821F62644017500FA1C9C /* LHShopDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LHShopDetailViewController.h; sourceTree = "<group>"; };
+		2B3821F72644017500FA1C9C /* LHShopDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LHShopDetailViewController.m; sourceTree = "<group>"; };
+		2B3821FA2644059C00FA1C9C /* LHShopDetailHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LHShopDetailHeaderView.h; sourceTree = "<group>"; };
+		2B3821FB2644059C00FA1C9C /* LHShopDetailHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LHShopDetailHeaderView.m; sourceTree = "<group>"; };
+		2B38220826441B6E00FA1C9C /* LHHorizontalPagingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LHHorizontalPagingView.m; sourceTree = "<group>"; };
+		2B38220926441B6E00FA1C9C /* LHHorizontalPagingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LHHorizontalPagingView.h; sourceTree = "<group>"; };
+		2B38220C2644266C00FA1C9C /* LHShopDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LHShopDetailModel.h; sourceTree = "<group>"; };
+		2B38220D2644266C00FA1C9C /* LHShopDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LHShopDetailModel.m; sourceTree = "<group>"; };
 		2B38984925FDE32600096C3D /* LHMapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LHMapViewController.h; sourceTree = "<group>"; };
 		2B38984A25FDE32600096C3D /* LHMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LHMapViewController.m; sourceTree = "<group>"; };
 		2B38985825FDF0D100096C3D /* LHMapLocationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LHMapLocationManager.h; sourceTree = "<group>"; };
@@ -372,6 +384,8 @@
 				2BBCFDFB25EE5B3800C9513F /* LHMainViewController.m */,
 				2B4E695725FD3F9B00368AF7 /* LHMainCategoryViewController.h */,
 				2B4E695825FD3F9B00368AF7 /* LHMainCategoryViewController.m */,
+				2B3821F62644017500FA1C9C /* LHShopDetailViewController.h */,
+				2B3821F72644017500FA1C9C /* LHShopDetailViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -379,6 +393,8 @@
 		2BE73F0425F3B92200257753 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2B38220C2644266C00FA1C9C /* LHShopDetailModel.h */,
+				2B38220D2644266C00FA1C9C /* LHShopDetailModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -444,9 +460,13 @@
 			isa = PBXGroup;
 			children = (
 				2BFE34D325EE6ADA0066FC2F /* LHMainTopView.h */,
+				2B38220926441B6E00FA1C9C /* LHHorizontalPagingView.h */,
+				2B38220826441B6E00FA1C9C /* LHHorizontalPagingView.m */,
 				2BFE34D425EE6ADA0066FC2F /* LHMainTopView.m */,
 				2BE73F2825F3C2F600257753 /* LHMainHeaderView.h */,
 				2BE73F2925F3C2F600257753 /* LHMainHeaderView.m */,
+				2B3821FA2644059C00FA1C9C /* LHShopDetailHeaderView.h */,
+				2B3821FB2644059C00FA1C9C /* LHShopDetailHeaderView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -631,6 +651,7 @@
 				2B38986225FE10B400096C3D /* LHShopListFilterListView.m in Sources */,
 				2B38987325FE5DD600096C3D /* LHToastManager.m in Sources */,
 				2B5052A125EE52A500E89CF7 /* AppDelegate.m in Sources */,
+				2B38220E2644266C00FA1C9C /* LHShopDetailModel.m in Sources */,
 				2B5052B225EE52A800E89CF7 /* main.m in Sources */,
 				2BE73EDD25F374E300257753 /* LHSearchBarView.m in Sources */,
 				2BFE34C925EE690E0066FC2F /* LHShopViewController.m in Sources */,
@@ -651,18 +672,21 @@
 				2B4E695925FD3F9B00368AF7 /* LHMainCategoryViewController.m in Sources */,
 				2B38987F25FF64BF00096C3D /* LHSettingViewModel.m in Sources */,
 				2BFE34CD25EE691F0066FC2F /* LHRecommendViewController.m in Sources */,
+				2B3821FC2644059C00FA1C9C /* LHShopDetailHeaderView.m in Sources */,
 				2BFE34E325EE726D0066FC2F /* UIViewAdditions.m in Sources */,
 				2BE73EE825F380C400257753 /* LHSearchResultViewController.m in Sources */,
 				2B61D49225F3464000E308F3 /* LHWindowManager.m in Sources */,
 				2B33029825FCED300052AD35 /* LHSearchHistoryView.m in Sources */,
 				2B33029C25FCEF1D0052AD35 /* LHSearchHistoryFlowLayout.m in Sources */,
 				2B38987B25FF64A200096C3D /* LHSettingViewController.m in Sources */,
+				2B38220A26441B6E00FA1C9C /* LHHorizontalPagingView.m in Sources */,
 				2B38986A25FE454800096C3D /* LHLoginViewController.m in Sources */,
 				2B4E694925FD250300368AF7 /* LHSearchHistoryManager.m in Sources */,
 				2B4E694525FD015900368AF7 /* LHShopSearchRecommandModel.m in Sources */,
 				2B38987725FF165500096C3D /* LHMineCollectionViewController.m in Sources */,
 				2BFE34D525EE6ADA0066FC2F /* LHMainTopView.m in Sources */,
 				2BFE34FE25EE8DCB0066FC2F /* LHShopListModel.m in Sources */,
+				2B3821F82644017500FA1C9C /* LHShopDetailViewController.m in Sources */,
 				2B38985E25FDFC2E00096C3D /* LHShopListFilterView.m in Sources */,
 				2B61D49725F34F1D00E308F3 /* LHBaseViewController.m in Sources */,
 				2B3302A025FCF1F70052AD35 /* LHSeachItemCollectionCell.m in Sources */,

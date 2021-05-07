@@ -80,6 +80,7 @@
             @"login" : @"LHLoginViewController",
             @"collection" : @"LHMineCollectionViewController",
             @"setting" : @"LHSettingViewController",
+            @"shop_detail" : @"LHShopDetailViewController",
         };
     });
     NSString *name = [nameDict valueForKey:url];
