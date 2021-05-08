@@ -113,6 +113,19 @@
     }];
 }
 
++ (void)requestCommentWithShopId:(NSString *)shopId userId:(NSString *)userId completion:(completionBlock)completion {
+    NSString *urlString = [[self host] stringByAppendingString:@"/comment"];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"userId"] = userId;
+    params[@"shopId"] = shopId;
+    params[@"sort"] = @"likes";
+    [self requestWithURL:urlString params:params dataClass:[LHUserModel class] completion:^(JSONModel * _Nonnull model) {
+        if(completion) {
+            completion(model);
+        }
+    }];
+}
+
 + (void)addColletionWithShopId:(NSString *)shopId userId:(NSString *)userId completion:(completionBlock)completion {
     NSString *urlString = [[self host] stringByAppendingString:@"/user/collection"];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
@@ -123,6 +136,16 @@
             completion(model);
         }
     }];
+}
+
++ (void)commitCommentWithParams:(NSDictionary *)params completion:(completionBlock)completion {
+    NSString *urlString = [[self host] stringByAppendingString:@"/comment"];
+    [self postWithURL:urlString params:params dataClass:[LHUserModel class] completion:^(JSONModel * _Nonnull model) {
+        if(completion) {
+            completion(model);
+        }
+    }];
+    
 }
 
 

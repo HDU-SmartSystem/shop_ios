@@ -11,6 +11,7 @@
 #import <BMKLocationKit/BMKLocationComponent.h>
 #import "LHMapLocationManager.h"
 #import "LHAccoutManager.h"
+#import <BNaviService.h>
 
 @implementation LHLauchManger
 
@@ -36,6 +37,15 @@
     [BMKMapManager setCoordinateTypeUsedInBaiduMapSDK:BMK_COORDTYPE_BD09LL];
     [[BMKLocationAuth sharedInstance] checkPermisionWithKey:@"qdDpHIIIrhSBlBInj8gsZMiMRA8Gpi37" authDelegate:nil];
     [[LHMapLocationManager shareInstance] requestLocationWithCompletionBlock:nil];
+    
+    [BNaviService_Instance initNaviService:nil success:^{
+        [BNaviService_Instance authorizeNaviAppKey:@"qdDpHIIIrhSBlBInj8gsZMiMRA8Gpi37" completion:^(BOOL suc) {
+            NSLog(@"authorizeNaviAppkey ret = %d",suc);
+        }];
+
+    } fail:^{
+        NSLog(@"initNaviSDK fail");
+    }];
 }
 
 

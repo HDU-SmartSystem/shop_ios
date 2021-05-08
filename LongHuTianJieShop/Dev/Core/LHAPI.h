@@ -21,6 +21,8 @@ typedef void(^completionBlock)(JSONModel *model);
 + (void)requestRecommandWithUserId:(NSString *)userId Page:(NSInteger)page completion:(completionBlock)completion;
 + (void)addColletionWithShopId:(NSString *)shopId userId:(NSString *)userId completion:(completionBlock)completion;
 + (void)reqeustShopDetailWithShopId:(NSString *)shopId userId:(NSString *)userId completion:(completionBlock)completion;
++ (void)requestCommentWithShopId:(NSString *)shopId userId:(NSString *)userId completion:(completionBlock)completion;
++ (void)commitCommentWithParams:(NSDictionary *)params completion:(completionBlock)completion;
 @end
 
 NS_ASSUME_NONNULL_END

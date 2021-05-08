@@ -13,11 +13,15 @@
 #import "LHWindowManager.h"
 #import "UIViewAdditions.h"
 #import "LHMapLocationManager.h"
+#import <BNRoutePlanModel.h>
+#import <BNaviService.h>
 
-
-@interface LHShopViewController () <BMKMapViewDelegate>
+extern NSString *LHMapPoiSearchNotification;
+@interface LHShopViewController () <BMKMapViewDelegate,UITextFieldDelegate,BNNaviRoutePlanDelegate>
 @property(nonatomic,strong) BMKMapView *mapView;
 @property(nonatomic,strong) UIButton *locationButton;
+@property(nonatomic,strong) UITextField *textInput;
+@property(nonatomic,strong) NSArray<BMKPointAnnotation *> *poiAnnotation;
 @end
 
 @implementation LHShopViewController
@@ -60,6 +64,31 @@
     locationImageView.center = CGPointMake(20,20);
     [self.locationButton addSubview:locationImageView];
     [self.view addSubview:self.locationButton];
+    
+    UIView *searchView = [[UIView alloc] initWithFrame:CGRectMake(50, [LHWindowManager shareInstance].currentNavigationController.tabBarController.tabBar.height, SCREEN_WIDTH - 100, 44)];
+    searchView.backgroundColor = [UIColor whiteColor];
+    UIImageView *searchIconView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 24, 24)];
+    searchIconView.image = [UIImage imageNamed:@"main_search_icon"];
+    [searchView addSubview:searchIconView];
+    
+    self.textInput = [[UITextField alloc] initWithFrame:CGRectMake(44, 10, searchView.width - 44 - 10, 20)];
+    self.textInput.background = NULL;
+    self.textInput.font = [UIFont systemFontOfSize:14 weight:UIFontWeightRegular];
+    self.textInput.textColor = [UIColor colorWithHexString:@"#333333"];
+    self.textInput.tintColor = [UIColor colorWithHexString:@"#333333"];
+    self.textInput.returnKeyType = UIReturnKeySearch;
+    self.textInput.delegate = self;
+    NSDictionary *attrDict = @{
+        NSFontAttributeName:[UIFont themeFontRegular:14],
+        NSForegroundColorAttributeName:[UIColor colorWithHexString:@"#999999"]
+    };
+    NSAttributedString *attrPlaceHolder = [[NSAttributedString alloc] initWithString:@"搜索店铺" attributes:attrDict];
+    self.textInput.attributedPlaceholder = attrPlaceHolder;
+    [searchView addSubview:self.textInput];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(searchComplete:) name:LHMapPoiSearchNotification object:nil];
+
+    [self.view addSubview:searchView];
 }
 
 - (void)locationOnce {
@@ -74,6 +103,23 @@
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleDarkContent;
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
+    NSString *text = textField.text;
+    [[LHMapLocationManager shareInstance] serachWithName:text];
+    return YES;
+}
+
+- (void)searchComplete:(NSNotification *)noti {
+    NSDictionary *userInfo = noti.userInfo;
+    NSArray<BMKPointAnnotation *> *poiAnnotation = [userInfo valueForKey:@"annotation"];
+    [self.mapView removeAnnotations:self.poiAnnotation];
+    [self.mapView addAnnotations:poiAnnotation];
+    self.poiAnnotation = poiAnnotation;
+}
+-(void)mapView:(BMKMapView *)mapView didSelectAnnotationView:(BMKAnnotationView *)view {
+    NSLog(@"%@",view.annotation.title);
 }
 
 @end
