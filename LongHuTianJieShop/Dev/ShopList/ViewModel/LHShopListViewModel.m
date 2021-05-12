@@ -30,6 +30,7 @@
 @property(nonatomic,copy) NSArray *filterArray;
 @property(nonatomic,strong) LHShopListFilterView *filterView;
 @property(nonatomic,weak) LHShopListViewController *viewController;
+@property(nonatomic,strong) NSMutableSet *shopSet;
 @end
 
 @implementation LHShopListViewModel
@@ -42,6 +43,7 @@
         self.params = params;
         self.pageNumber = 0;
         self.dataList = [NSMutableArray array];
+        self.shopSet = [NSMutableSet set];
         self.isLastSuccess = YES;
         [self configFilterView];
         [self configTableView];
@@ -64,6 +66,19 @@
     [footer setTitle:@"上拉加载更多" forState:MJRefreshStateIdle];
     self.tableView.mj_footer = footer;
     self.tableView.mj_footer.hidden = YES;
+    if(self.listType == LHShopListTypeRecommand) {
+        self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            StrongSelf;
+            [self.dataList removeAllObjects];
+            [self.shopSet removeAllObjects];
+            self.pageNumber = 0;
+            [self requestData];
+        }];
+        UILabel *label = [self.tableView.mj_header valueForKey:@"lastUpdatedTimeLabel"];
+        if([label isKindOfClass:[UILabel class]]) {
+            label.hidden = YES;
+        }
+    }
 }
 
 - (void)configFilterView {
@@ -84,7 +99,12 @@
             LHShopListModel *listModel =(LHShopListModel *)model;
             self.tableView.mj_footer.hidden = NO;
             if(listModel.data.count) {
-                [self.dataList addObjectsFromArray:listModel.data];
+                for(LHShopListDataModel *shop in listModel.data) {
+                    if(![self.shopSet containsObject:shop.id]) {
+                        [self.dataList addObject:shop];
+                        [self.shopSet addObject:shop.id];
+                    }
+                }
                 [self.tableView reloadData];
             } else {
                 self.isLastSuccess = NO;
@@ -93,6 +113,9 @@
                 }
                 [self.tableView.mj_footer setState:MJRefreshStateNoMoreData];
             }
+        }
+        if(self.tableView.mj_header.isRefreshing == YES) {
+            [self.tableView.mj_header endRefreshing];
         }
     };
 

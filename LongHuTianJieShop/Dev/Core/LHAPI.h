@@ -23,6 +23,7 @@ typedef void(^completionBlock)(JSONModel *model);
 + (void)reqeustShopDetailWithShopId:(NSString *)shopId userId:(NSString *)userId completion:(completionBlock)completion;
 + (void)requestCommentWithShopId:(NSString *)shopId userId:(NSString *)userId completion:(completionBlock)completion;
 + (void)commitCommentWithParams:(NSDictionary *)params completion:(completionBlock)completion;
++ (void)requestGoodWithShopId:(NSString *)shopId Page:(NSInteger)page completion:(completionBlock)completion;
 @end
 
 NS_ASSUME_NONNULL_END

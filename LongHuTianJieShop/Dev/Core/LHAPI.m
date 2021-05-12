@@ -11,7 +11,9 @@
 #import "LHShopListModel.h"
 #import "LHShopSearchRecommandModel.h"
 #import "LHUserModel.h"
+#import "LHShopGoodModel.h"
 #import "LHShopDetailModel.h"
+#import "LHShopCommentModel.h"
 #import "LHAccoutManager.h"
 
 @implementation LHAPI
@@ -20,7 +22,7 @@
     return @"http://120.55.51.51:8629";
 }
 + (void)requestRecommandWithUserId:(NSString *)userId Page:(NSInteger)page completion:(completionBlock)completion {
-    NSString *urlString = [@"http://127.0.0.1:5000" stringByAppendingString:@"/user/recommand"];
+    NSString *urlString = [@"http://192.168.3.105:5000" stringByAppendingString:@"/user/recommand"];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"userId"] = userId ?: @"null";
     params[@"page"] = @(page);
@@ -51,6 +53,20 @@
     params[@"page"] = @(page);
     
     [self requestWithURL:urlString params:params dataClass:[LHShopListModel class] completion:^(JSONModel * _Nonnull model) {
+        if(completion) {
+            completion(model);
+        }
+    }];
+    
+}
+
++ (void)requestGoodWithShopId:(NSString *)shopId Page:(NSInteger)page completion:(completionBlock)completion {
+    NSString *urlString = [@"http://192.168.3.105:5000" stringByAppendingString:@"/good"];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"shopId"] = shopId ?: @"null";
+    params[@"page"] = @(page);
+    
+    [self requestWithURL:urlString params:params dataClass:[LHShopGoodModel class] completion:^(JSONModel * _Nonnull model) {
         if(completion) {
             completion(model);
         }
@@ -114,12 +130,12 @@
 }
 
 + (void)requestCommentWithShopId:(NSString *)shopId userId:(NSString *)userId completion:(completionBlock)completion {
-    NSString *urlString = [[self host] stringByAppendingString:@"/comment"];
+    NSString *urlString = [@"http://192.168.3.105:5000" stringByAppendingString:@"/comment"];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"userId"] = userId;
     params[@"shopId"] = shopId;
     params[@"sort"] = @"likes";
-    [self requestWithURL:urlString params:params dataClass:[LHUserModel class] completion:^(JSONModel * _Nonnull model) {
+    [self requestWithURL:urlString params:params dataClass:[LHShopCommentModel class] completion:^(JSONModel * _Nonnull model) {
         if(completion) {
             completion(model);
         }

@@ -19,6 +19,10 @@
 #import "LHWindowManager.h"
 #import "LHRoute.h"
 #import "LHAccoutManager.h"
+#import "LHShopGoodModel.h"
+#import "LHShopCommentModel.h"
+#import "LHShopGoodCell.h"
+#import "LHShopCommentCell.h"
 
 @interface LHShopDetailSubViewModel () <UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
 @property(nonatomic,weak) UITableView *tableView;
@@ -51,7 +55,8 @@
 -(void)configTableView {
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    [self.tableView registerClass:[LHShopListItemCell class] forCellReuseIdentifier:NSStringFromClass([LHShopListDataModel class])];
+    [self.tableView registerClass:[LHShopGoodCell class] forCellReuseIdentifier:NSStringFromClass([LHShopGoodDataModel class])];
+    [self.tableView registerClass:[LHShopCommentCell class] forCellReuseIdentifier:NSStringFromClass([LHShopCommentDataModel class])];
     WeakSelf;
     MJRefreshAutoStateFooter *footer =  [MJRefreshAutoStateFooter footerWithRefreshingBlock:^{
         StrongSelf;
@@ -69,8 +74,22 @@
     WeakSelf;
     completionBlock completionBlk = ^(JSONModel * _Nonnull model) {
         StrongSelf;
-        if([model isKindOfClass:[LHShopListModel class]]) {
-            LHShopListModel *listModel =(LHShopListModel *)model;
+        if([model isKindOfClass:[LHShopGoodModel class]]) {
+            LHShopGoodModel *listModel =(LHShopGoodModel *)model;
+            self.tableView.mj_footer.hidden = NO;
+            if(listModel.data.count) {
+                [self.dataList addObjectsFromArray:listModel.data];
+                [self.tableView reloadData];
+            } else {
+                self.isLastSuccess = NO;
+                if(!self.dataList.count) {
+                    self.tableView.mj_footer.hidden = YES;
+                }
+                [self.tableView.mj_footer setState:MJRefreshStateNoMoreData];
+            }
+        }
+        if([model isKindOfClass:[LHShopCommentModel class]]) {
+            LHShopCommentModel *listModel =(LHShopCommentModel *)model;
             self.tableView.mj_footer.hidden = NO;
             if(listModel.data.count) {
                 [self.dataList addObjectsFromArray:listModel.data];
@@ -90,7 +109,7 @@
             case LHShopDetailSubGoods:
             {
                 NSString *shopId = self.params[@"shopId"];
-                [LHAPI requestCommentWithShopId:shopId userId:@"1" completion:completionBlk];
+                [LHAPI requestGoodWithShopId:shopId Page:self.pageNumber completion:completionBlk];
                 break;
             }
             case LHShopDetailSubComments:
@@ -116,7 +135,6 @@
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 50;
     return self.dataList.count;
 }
 
@@ -131,17 +149,41 @@
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     NSUInteger index = indexPath.row;
     if(index < self.dataList.count) {
-        return [[UITableViewCell alloc] initWithFrame:CGRectZero];
+        if(self.listType == LHShopDetailSubGoods) {
+            LHShopGoodDataModel *model = [self.dataList objectAtIndex:index];
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([LHShopGoodDataModel class]) forIndexPath:indexPath];
+            if(cell == nil) {
+                cell = [[LHShopGoodCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NSStringFromClass([LHShopGoodDataModel class])];
+            }
+            if([cell isKindOfClass:[LHShopGoodCell class]]) {
+                [(LHShopGoodCell *)cell refreshWithData:model];
+            }
+            return cell;
+        } else {
+            LHShopCommentDataModel *model = [self.dataList objectAtIndex:index];
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([LHShopCommentDataModel class]) forIndexPath:indexPath];
+            if(cell == nil) {
+                cell = [[LHShopCommentCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NSStringFromClass([LHShopCommentDataModel class])];
+            }
+            if([cell isKindOfClass:[LHShopCommentCell class]]) {
+                [(LHShopCommentCell *)cell refreshWithData:model];
+            }
+            return cell;
+            
+        }
     }
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 50)];
-    cell.backgroundColor = [self randomColor];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    return cell;
     return [[UITableViewCell alloc] initWithFrame:CGRectZero];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 50;
+    if(self.listType == LHShopDetailSubGoods) {
+        return 84 + 12 * 2 + 10;
+    } else {
+        NSUInteger index = indexPath.row;
+        LHShopCommentDataModel *model = [self.dataList objectAtIndex:index];
+        CGFloat height = [model.text heightWithFont:[UIFont themeFontRegular:14] width:SCREEN_WIDTH - 12 * 2 - 9 * 2] + 46;
+        return height;
+    }
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

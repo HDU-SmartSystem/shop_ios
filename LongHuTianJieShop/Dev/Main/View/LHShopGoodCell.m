@@ -1,11 +1,11 @@
 //
-//  LHShopListItemCell.m
+//  LHShopGoodCell.m
 //  LongHuTianJieShop
 //
-//  Created by bytedance on 2021/3/2.
+//  Created by bytedance on 2021/5/12.
 //
 
-#import "LHShopListItemCell.h"
+#import "LHShopGoodCell.h"
 #import "UIViewAdditions.h"
 #import "NSString+LHExtention.h"
 #import "LHCommonDefine.h"
@@ -13,16 +13,17 @@
 #import <SDWebImage/SDWebImage.h>
 #import "UIColor+LHExtention.h"
 #import "UIFont+LHExtention.h"
+#import "LHShopGoodModel.h"
 
-@interface LHShopListItemCell ()
-@property(nonatomic,strong) UIImageView *shopImageView;
+@interface LHShopGoodCell ()
+@property(nonatomic,strong) UIImageView *goodImageView;
 @property(nonatomic,strong) UILabel *titleLabel;
-@property(nonatomic,strong) UILabel *commentLabel;
 @property(nonatomic,strong) UILabel *descLabel;
 @property(nonatomic,strong) UIView *containerView;
 @end
 
-@implementation LHShopListItemCell
+@implementation LHShopGoodCell
+
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if(self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
@@ -39,37 +40,33 @@
     self.containerView.layer.cornerRadius = 10;
     self.containerView.layer.masksToBounds = YES;
 
-    self.shopImageView = [[UIImageView alloc] initWithFrame:CGRectMake(12, 12, 84, 84)];
-    self.shopImageView.layer.cornerRadius = 4;
-    self.shopImageView.layer.masksToBounds = YES;
+    self.goodImageView = [[UIImageView alloc] initWithFrame:CGRectMake(12, 12, 84, 84)];
+    self.goodImageView.layer.cornerRadius = 4;
+    self.goodImageView.layer.masksToBounds = YES;
     
-    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.shopImageView.right + 6, 12, SCREEN_WIDTH - 18 - 24 - 84 - 6, 24)];
+    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.goodImageView.right + 6, 12, SCREEN_WIDTH - 18 - 24 - 84 - 6, 24)];
     self.titleLabel.numberOfLines = 2;
     self.titleLabel.font = [UIFont systemFontOfSize:16 weight:UIFontWeightMedium];
     self.titleLabel.textColor = [UIColor blackColor];
     
-    self.commentLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.shopImageView.right + 6, self.titleLabel.bottom + 5, 0, 20)];
-    self.commentLabel.font = [UIFont systemFontOfSize:14 weight:UIFontWeightRegular];
-    self.commentLabel.textColor = [UIColor blackColor];
 
-    self.descLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.shopImageView.right + 6, self.commentLabel.bottom + 5, 0, 20)];
+    self.descLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.goodImageView.right + 6, self.titleLabel.bottom + 5, 0, 20)];
     self.descLabel.font = [UIFont systemFontOfSize:14 weight:UIFontWeightRegular];
     self.descLabel.textColor = [UIColor blackColor];
     
     [self.contentView addSubview:self.containerView];
-    [self.containerView addSubview:self.shopImageView];
+    [self.containerView addSubview:self.goodImageView];
     [self.containerView addSubview:self.titleLabel];
-    [self.containerView addSubview:self.commentLabel];
     [self.containerView addSubview:self.descLabel];
 }
 
 -(void)refreshWithData:(id)data {
-    if(![data isKindOfClass:[LHShopListDataModel class]]) {
+    if(![data isKindOfClass:[LHShopGoodDataModel class]]) {
         return;
     }
-    LHShopListDataModel *model = (LHShopListDataModel *)data;
+    LHShopGoodDataModel *model = (LHShopGoodDataModel *)data;
     NSURL *imageUrl = [NSURL URLWithString:[model.picurl stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]];
-    [self.shopImageView sd_setImageWithURL:imageUrl];
+    [self.goodImageView sd_setImageWithURL:imageUrl];
     
     self.titleLabel.text = model.name;
     CGFloat height = [model.name heightWithFont:[UIFont themeFontMedium:16] width:self.titleLabel.width];
@@ -79,15 +76,9 @@
         self.titleLabel.height = 24;
     }
     
-    NSString *comment = [NSString stringWithFormat:@"%@条评论",model.commentNum];
-    self.commentLabel.top = self.titleLabel.bottom + 5;
-    self.commentLabel.text = comment;
-    self.commentLabel.width = [comment widthWithFont:[UIFont themeFontRegular:14] height:20];
-    
-    self.descLabel.top = self.commentLabel.bottom + 5;
-    self.descLabel.text = model.tag;
-    self.descLabel.width = [model.tag widthWithFont:[UIFont themeFontRegular:14] height:20];
+    self.descLabel.top = self.titleLabel.bottom + 5;
+    self.descLabel.text = [model.price stringByAppendingString:@"元"];
+    self.descLabel.width = [self.descLabel.text widthWithFont:[UIFont themeFontRegular:14] height:20];
 }
-
 
 @end
