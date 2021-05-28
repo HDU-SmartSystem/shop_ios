@@ -82,6 +82,7 @@
             @"setting" : @"LHSettingViewController",
             @"shop_detail" : @"LHShopDetailViewController",
             @"comment" : @"LHShopCommentViewController",
+            @"register" : @"LHRegisterViewController",
         };
     });
     NSString *name = [nameDict valueForKey:url];

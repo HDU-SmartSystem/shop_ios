@@ -24,6 +24,8 @@ typedef void(^completionBlock)(JSONModel *model);
 + (void)requestCommentWithShopId:(NSString *)shopId userId:(NSString *)userId completion:(completionBlock)completion;
 + (void)commitCommentWithParams:(NSDictionary *)params completion:(completionBlock)completion;
 + (void)requestGoodWithShopId:(NSString *)shopId Page:(NSInteger)page completion:(completionBlock)completion;
++ (void)requestCaptchaWithPhone:(NSString *)phone completion:(completionBlock)completion;
++ (void)requestCaptchaWithPhone:(NSString *)phone code:(NSString *)code password:(NSString *)password completion:(completionBlock)completion;
 @end
 
 NS_ASSUME_NONNULL_END

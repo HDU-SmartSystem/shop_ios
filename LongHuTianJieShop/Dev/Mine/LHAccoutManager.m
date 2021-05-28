@@ -69,6 +69,7 @@
 -(void)logout {
     self.loginStatus = NO;
     self.user = nil;
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"user"];
     [[NSNotificationCenter defaultCenter] postNotificationName:kLHLogoutSuccessNotification object:nil userInfo:nil];
 }
 

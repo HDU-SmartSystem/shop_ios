@@ -49,6 +49,8 @@
 		2B61D49725F34F1D00E308F3 /* LHBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B61D49625F34F1D00E308F3 /* LHBaseViewController.m */; };
 		2B61D49C25F34F6E00E308F3 /* LHSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B61D49B25F34F6E00E308F3 /* LHSearchViewController.m */; };
 		2B81C3AF25EE59060010A748 /* LHTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B81C3AE25EE59060010A748 /* LHTabViewController.m */; };
+		2BA3750F2652C25D00634898 /* LHRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA3750E2652C25D00634898 /* LHRegisterViewController.m */; };
+		2BA3751426612A1D00634898 /* LHShopCaptChaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA3751226612A1C00634898 /* LHShopCaptChaModel.m */; };
 		2BBCFDFC25EE5B3800C9513F /* LHMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BBCFDFB25EE5B3800C9513F /* LHMainViewController.m */; };
 		2BBCFE0025EE5C2100C9513F /* LHNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BBCFDFF25EE5C2100C9513F /* LHNavigationController.m */; };
 		2BBCFE0425EE5F1800C9513F /* LHMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BBCFE0325EE5F1800C9513F /* LHMineViewController.m */; };
@@ -155,6 +157,10 @@
 		2B61D49B25F34F6E00E308F3 /* LHSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LHSearchViewController.m; sourceTree = "<group>"; };
 		2B81C3AD25EE59060010A748 /* LHTabViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LHTabViewController.h; sourceTree = "<group>"; };
 		2B81C3AE25EE59060010A748 /* LHTabViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LHTabViewController.m; sourceTree = "<group>"; };
+		2BA3750D2652C25D00634898 /* LHRegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LHRegisterViewController.h; sourceTree = "<group>"; };
+		2BA3750E2652C25D00634898 /* LHRegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LHRegisterViewController.m; sourceTree = "<group>"; };
+		2BA3751226612A1C00634898 /* LHShopCaptChaModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LHShopCaptChaModel.m; sourceTree = "<group>"; };
+		2BA3751326612A1C00634898 /* LHShopCaptChaModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LHShopCaptChaModel.h; sourceTree = "<group>"; };
 		2BBCFDFA25EE5B3800C9513F /* LHMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LHMainViewController.h; sourceTree = "<group>"; };
 		2BBCFDFB25EE5B3800C9513F /* LHMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LHMainViewController.m; sourceTree = "<group>"; };
 		2BBCFDFE25EE5C2100C9513F /* LHNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LHNavigationController.h; sourceTree = "<group>"; };
@@ -218,6 +224,8 @@
 			children = (
 				2B38986D25FE5AA100096C3D /* LHUserModel.h */,
 				2B38986E25FE5AA100096C3D /* LHUserModel.m */,
+				2BA3751326612A1C00634898 /* LHShopCaptChaModel.h */,
+				2BA3751226612A1C00634898 /* LHShopCaptChaModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -452,6 +460,8 @@
 				2B38986C25FE5A8D00096C3D /* Model */,
 				2BBCFE0225EE5F1800C9513F /* LHMineViewController.h */,
 				2BBCFE0325EE5F1800C9513F /* LHMineViewController.m */,
+				2BA3750D2652C25D00634898 /* LHRegisterViewController.h */,
+				2BA3750E2652C25D00634898 /* LHRegisterViewController.m */,
 				2B38986425FE363800096C3D /* LHAccoutManager.h */,
 				2B38986525FE363800096C3D /* LHAccoutManager.m */,
 				2B38986825FE454800096C3D /* LHLoginViewController.h */,
@@ -709,6 +719,7 @@
 				2BE73F2225F3BB8000257753 /* LHBaseTableViewCell.m in Sources */,
 				2BFE34DB25EE6CE00066FC2F /* UIColor+LHExtention.m in Sources */,
 				2B61D48E25F343C600E308F3 /* LHRoute.m in Sources */,
+				2BA3750F2652C25D00634898 /* LHRegisterViewController.m in Sources */,
 				2B382296264B817A00FA1C9C /* LHShopCommentCell.m in Sources */,
 				2BE73EF425F385FD00257753 /* LHShopListViewModel.m in Sources */,
 				2B38226B2646412A00FA1C9C /* LHShopDetailSubViewModel.m in Sources */,
@@ -731,6 +742,7 @@
 				2B4E694525FD015900368AF7 /* LHShopSearchRecommandModel.m in Sources */,
 				2B38987725FF165500096C3D /* LHMineCollectionViewController.m in Sources */,
 				2BFE34D525EE6ADA0066FC2F /* LHMainTopView.m in Sources */,
+				2BA3751426612A1D00634898 /* LHShopCaptChaModel.m in Sources */,
 				2BFE34FE25EE8DCB0066FC2F /* LHShopListModel.m in Sources */,
 				2B3821F82644017500FA1C9C /* LHShopDetailViewController.m in Sources */,
 				2B38985E25FDFC2E00096C3D /* LHShopListFilterView.m in Sources */,

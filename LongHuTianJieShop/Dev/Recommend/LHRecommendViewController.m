@@ -26,6 +26,11 @@
     [self setupNavbar];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.shopListVC viewWillAppear:animated];
+}
+
 - (void)setupNavbar {
     CGFloat topInset = [[LHWindowManager shareInstance] window].safeAreaInsets.top + 44;
     self.customNavBar = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, topInset)];

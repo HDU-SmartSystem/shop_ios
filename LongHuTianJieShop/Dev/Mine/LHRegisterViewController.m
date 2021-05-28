@@ -1,11 +1,11 @@
 //
-//  LHLoginViewController.m
+//  LHRegisterViewController.m
 //  LongHuTianJieShop
 //
-//  Created by bytedance on 2021/3/14.
+//  Created by bytedance on 2021/5/17.
 //
 
-#import "LHLoginViewController.h"
+#import "LHRegisterViewController.h"
 #import "UIViewAdditions.h"
 #import "UIFont+LHExtention.h"
 #import "UIColor+LHExtention.h"
@@ -16,31 +16,27 @@
 #import "LHUserModel.h"
 #import "LHToastManager.h"
 #import "LHAccoutManager.h"
-#import "LHRegisterViewController.h"
+#import "LHShopCaptChaModel.h"
 
-@interface LHLoginViewController ()
+
+@interface LHRegisterViewController ()
 @property(nonatomic,strong) UIButton *closeButton;
 @property(nonatomic,strong) UITextField *usernameInput;
 @property(nonatomic,strong) UITextField *passwordInput;
-@property(nonatomic,strong) UIButton *loginButton;
+@property(nonatomic,strong) UITextField *captchaInput;
 @property(nonatomic,strong) UIButton *registerButton;
-@property(nonatomic,strong) UIButton *findPasswordButton;
 @end
 
-@implementation LHLoginViewController
+@implementation LHRegisterViewController
 
--(instancetype)initWithParams:(NSDictionary *)params {
-    if(self = [super init]) {
-        
-    }
+- (instancetype)initWithParams:(NSDictionary *)params {
+    self = [super init];
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupView];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess) name:kLHLoginSuccessNotification object:nil];
 }
 
 - (void)setupView{
@@ -55,7 +51,7 @@
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, self.closeButton.bottom + 70, 0, 40)];
     titleLabel.font = [UIFont themeFontMedium:30];
     titleLabel.textColor = [UIColor blackColor];
-    titleLabel.text = @"密码登陆";
+    titleLabel.text = @"用户注册";
     titleLabel.width = [titleLabel.text widthWithFont:[UIFont themeFontMedium:30] height:40];
     [self.view addSubview:titleLabel];
     
@@ -94,61 +90,75 @@
     passwordLineView.backgroundColor = [UIColor colorWithHexString:@"#e8e8e8"];
     [self.view addSubview:passwordLineView];
     
-    self.loginButton = [[UIButton alloc] initWithFrame:CGRectMake(20, passwordLineView.bottom + 50, SCREEN_WIDTH - 40, 50)];
-    self.loginButton.backgroundColor = [UIColor colorWithHexString:@"#ff5500"];
-    self.loginButton.layer.cornerRadius = self.loginButton.height / 2.0f;
-    self.loginButton.layer.masksToBounds = YES;
-    self.loginButton.titleLabel.font = [UIFont themeFontRegular:16];
-    [self.loginButton setTitle:@"登录" forState:UIControlStateNormal];
-    [self.loginButton setTitle:@"登录" forState:UIControlStateHighlighted];
-    [self.view addSubview:self.loginButton];
+    self.captchaInput = [[UITextField alloc] initWithFrame:CGRectMake(20, self.passwordInput.bottom + 20, SCREEN_WIDTH - 40, 20)];
+    self.captchaInput.font = [UIFont themeFontRegular:16];
+    self.captchaInput.textColor = [UIColor blackColor];
+    self.captchaInput.tintColor = [UIColor blackColor];
+    cleanButton = [self.captchaInput valueForKey:@"_clearButton"];
+    [cleanButton setImage:[UIImage imageNamed:@"serach_input_clear"] forState:UIControlStateNormal];
+    self.captchaInput.clearButtonMode = UITextFieldViewModeWhileEditing;
+    attrPlaceHolder = [[NSAttributedString alloc] initWithString:@"验证码" attributes:attrDict];
+    self.captchaInput.attributedPlaceholder = attrPlaceHolder;
+    [self.view addSubview:self.captchaInput];
     
-    self.registerButton = [[UIButton alloc] initWithFrame:CGRectMake(self.loginButton.left, self.loginButton.bottom + 15, 0, 20)];
+    UIView *captchaLineView = [[UIView alloc] initWithFrame:CGRectMake(20, self.captchaInput.bottom + 15, SCREEN_WIDTH - 40, 0.5)];
+    captchaLineView.backgroundColor = [UIColor colorWithHexString:@"#e8e8e8"];
+    [self.view addSubview:captchaLineView];
+    
+    self.registerButton = [[UIButton alloc] initWithFrame:CGRectMake(20, captchaLineView.bottom + 50, SCREEN_WIDTH - 40, 50)];
+    self.registerButton.backgroundColor = [UIColor colorWithHexString:@"#ff5500"];
+    self.registerButton.layer.cornerRadius = self.registerButton.height / 2.0f;
+    self.registerButton.layer.masksToBounds = YES;
+    self.registerButton.titleLabel.font = [UIFont themeFontRegular:16];
     [self.registerButton setTitle:@"注册" forState:UIControlStateNormal];
     [self.registerButton setTitle:@"注册" forState:UIControlStateHighlighted];
-    self.registerButton.titleLabel.font = [UIFont themeFontRegular:16];
-    [self.registerButton setTitleColor:[UIColor colorWithHexString:@"#FF9629"] forState:UIControlStateNormal];
-    [self.registerButton setTitleColor:[UIColor colorWithHexString:@"#FF9629"] forState:UIControlStateHighlighted];
-    [self.registerButton sizeToFit];
     [self.view addSubview:self.registerButton];
-    [self.registerButton addTarget:self action:@selector(goRegister) forControlEvents:UIControlEventTouchUpInside];
     
-    self.findPasswordButton = [[UIButton alloc] initWithFrame:CGRectMake(0, self.loginButton.bottom + 15, 0, 20)];
-    [self.findPasswordButton setTitle:@"找回密码" forState:UIControlStateNormal];
-    [self.findPasswordButton setTitle:@"找回密码" forState:UIControlStateHighlighted];
-    self.findPasswordButton.titleLabel.font = [UIFont themeFontRegular:16];
-    [self.findPasswordButton setTitleColor:[UIColor colorWithHexString:@"#FF9629"] forState:UIControlStateNormal];
-    [self.findPasswordButton setTitleColor:[UIColor colorWithHexString:@"#FF9629"] forState:UIControlStateHighlighted];
-    [self.findPasswordButton sizeToFit];
-    self.findPasswordButton.right = self.loginButton.right;
-    [self.view addSubview:self.findPasswordButton];
-    
-    [self.loginButton addTarget:self action:@selector(login) forControlEvents:UIControlEventTouchUpInside];
-}
-
--(void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    self.navigationController.navigationBar.hidden = YES;
+    [self.registerButton addTarget:self action:@selector(registerClick) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)close {
-    [[LHWindowManager shareInstance].currentNavigationController dismissViewControllerAnimated:YES completion:nil];
+    [[LHWindowManager shareInstance].currentNavigationController popViewControllerAnimated:YES];
 }
 
-- (void)goRegister {
-    [[LHWindowManager shareInstance].currentNavigationController dismissViewControllerAnimated:NO completion:nil];
-    [[LHRoute shareInstance] pushViewControllerWithURL:@"sslocal://register" params:nil];
-}
-
-- (void)login {
+- (void)registerClick {
     NSString *userName = self.usernameInput.text;
     NSString *passWord = self.passwordInput.text;
-    [[LHAccoutManager shareInstance] loginWithUserName:userName passWord:passWord];
+    NSString *captcha = self.captchaInput.text;
+    if(userName.length) {
+        if(captcha.length==0) {
+            [LHAPI requestCaptchaWithPhone:userName completion:^(JSONModel * _Nonnull model) {
+                if([model isKindOfClass:[LHShopCaptChaModel class]]) {
+                    LHShopCaptChaModel *captchaModel = (LHShopCaptChaModel *) model;
+                    [[LHToastManager shareInstance] showToastWithText:captchaModel.data time:4];
+                }
+            }];
+        } else {
+            [LHAPI requestCaptchaWithPhone:userName code:captcha password:passWord completion:^(JSONModel * _Nonnull model) {
+                if([model isKindOfClass:[LHShopCaptChaModel class]]) {
+                    LHShopCaptChaModel *captchaModel = (LHShopCaptChaModel *) model;
+                    NSString *msg = nil;
+                    if([captchaModel.code integerValue] == 0) {
+                        msg = @"注册成功";
+                    } else {
+                        msg = captchaModel.data;
+                    }
+                    [[LHToastManager shareInstance] showToastWithText:msg time:2];
+                    if([captchaModel.code integerValue] == 0) {
+                        [self registerSuccess];
+                    }
+                }
+            }];
+            
+        }
+    } else {
+        [[LHToastManager shareInstance] showToastWithText:@"请输入手机号" time:2];
+    }
 }
 
-- (void)loginSuccess {
+- (void)registerSuccess {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self close];
+        [[[LHWindowManager shareInstance] currentNavigationController] popViewControllerAnimated:YES];
     });
 }
 
